@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sentence-transformers
+chromadb
+langchain-community
+requests
+beautifulsoup4
+pandas
+prometheus-fastapi-instrumentator
+itsdangerous
+python-multipart
+langchain
+langchain-chroma
+
