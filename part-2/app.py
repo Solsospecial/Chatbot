@@ -4,6 +4,8 @@ import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_openai_tools_agent, AgentExecutor
 from gpt_utils import pdf_tool, web_tool, google_tool
+from langchain_core.prompts import ChatPromptTemplate
+
 from prompt import get_prompt
 
 # Streamlit configuration
@@ -21,6 +23,12 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 """
 
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant."),
+    ("human", "{input}"),
+    ("agent_scratchpad", "{agent_scratchpad}")
+]
+
 # Initialize tools/prompt in session state
 if "pdf_tool" not in st.session_state:
     st.session_state.pdf_tool = pdf_tool()
@@ -32,7 +40,7 @@ if "google_tool" not in st.session_state:
     st.session_state.google_tool = google_tool()
 
 if "prompt" not in st.session_state:
-    st.session_state.prompt = get_prompt()
+    st.session_state.prompt = prompt
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
