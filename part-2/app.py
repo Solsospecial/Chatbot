@@ -25,10 +25,12 @@ load_dotenv()
 # Initialize Streamlit app
 st.title("Streamlit Chatbot with PDF and Web Search")
 
+"""
 # Setup API Keys
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
+"""
 
 converter = pyttsx3.init()
 converter.setProperty('rate', 150) 
