@@ -45,7 +45,7 @@ st.title("Streamlit Chatbot with PDF and Web Search")
         
 with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
-    url = st.text_input("Enter URL")
+    url = st.text_input("Enter URL").strip()
     if file_uploader is not None and "upload_pdf" not in st.session_state:
         response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
         if response.status_code == 200:
@@ -110,14 +110,12 @@ if query := st.chat_input("Enter your query:"):
     with st.chat_message("user"):
         st.markdown(query)
     with st.spinner("Generating response..."):
-        messages = st.session_state.messages
-        messages_str = ""
-        for message in messages:
-            if message["role"] == "user":
-                messages_str += f"User: {message['content']}///"
-            elif message["role"] == "assistant":
-                messages_str += f"Assistant: {message['content']}///"
-        result = st.session_state.agent_executor.invoke({"input": query})
+        try:
+            result = st.session_state.agent_executor.invoke({"input": query})
+            output = result['output]
+        except Exception as e:
+            output = f"Sorry, I ran into an error: {e}"
         
+    with st.chat_message("assistant"):
         st.markdown(result['output'])
-        st.session_state.messages.append({"role": "assistant", "content": result['output']})
+    st.session_state.messages.append({"role": "assistant", "content": output})
