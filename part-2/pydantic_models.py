@@ -1,11 +1,9 @@
-from pydantic import BaseModel
-from typing import Optional
+from langchain_core.pydantic_v1 import BaseModel
+
 class QueryRequest(BaseModel):
     input: str
-    # bot_id: str  # New field for specifying the bot_id
 
 class MessageResponse(BaseModel):
-    # id: str
     content: str
 
 class WebDataRequest(BaseModel):
