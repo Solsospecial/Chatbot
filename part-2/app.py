@@ -1,11 +1,8 @@
 import streamlit as st
 import os
 import requests
-import io
-from pydantic_models import QueryRequest
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.agents import create_openai_tools_agent
-from langchain.agents import AgentExecutor
+from langchain.agents import create_openai_tools_agent, AgentExecutor
 from gpt_utils import pdf_tool, web_tool, google_tool
 from prompt import get_prompt
 
