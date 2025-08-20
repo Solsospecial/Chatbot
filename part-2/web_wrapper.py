@@ -21,7 +21,7 @@ class WebSearchAPIWrapper(BaseModel):
             return "❌ Failed to fetch results!"
 
     def run(self, query: str) -> str:
-        """Run query through Web Search and parse result."""
+        """Run query through Web Search and parse the result."""
         return self._web_search_results(query)
 
 class WebSearchRun(BaseTool):
