@@ -6,8 +6,6 @@ from langchain.agents import create_openai_tools_agent, AgentExecutor
 from gpt_utils import pdf_tool, web_tool, google_tool
 from langchain_core.prompts import ChatPromptTemplate
 
-from prompt import get_prompt
-
 # Streamlit configuration
 st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
 
@@ -23,11 +21,12 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 """
 
+# Build prompt
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant."),
     ("human", "{input}"),
     ("agent_scratchpad", "{agent_scratchpad}")
-]
+])
 
 # Initialize tools/prompt in session state
 if "pdf_tool" not in st.session_state:
@@ -76,10 +75,7 @@ with st.sidebar:
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-2.5-flash",
-            api_key=GEMINI_API_KEY
-        )
+        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
         
         # Setup tools
         tools = [
