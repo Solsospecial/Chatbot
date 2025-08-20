@@ -37,6 +37,7 @@ if "prompt" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
     
+# For the chatbo's greeting message
 if "initialized_greeting" not in st.session_state:
     st.session_state.initialized_greeting = False
     
