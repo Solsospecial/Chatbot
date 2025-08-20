@@ -7,7 +7,7 @@ from gpt_utils import pdf_tool, web_tool, google_tool
 from prompt import get_prompt
 
 # Streamlit configuration
-st.set_page_config(page_title="Streamlit Chatbot with PDF Query and Web Search")
+st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
 
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
