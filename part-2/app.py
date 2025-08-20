@@ -13,7 +13,7 @@ from prompt import get_prompt
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     st.error("GEMINI_API_KEY is not set. Please set it in environment variables.")
-    st.stop
+    st.stop()
 
 """
 # Setup API Keys
