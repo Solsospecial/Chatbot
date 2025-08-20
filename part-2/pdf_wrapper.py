@@ -1,16 +1,13 @@
 from typing import Optional
 from langchain_core.callbacks.manager import CallbackManagerForToolRun
-from langchain_core.pydantic_v1 import BaseModel, Extra
+from pydantic import BaseModel, ConfigDict
 from langchain_core.tools.base import BaseTool
 
 class PDFSearchAPIWrapper(BaseModel):
     """Wrapper for PDF Search API."""
     api_url:str= "http://127.0.0.1:8000"  # The API URL for searching in PDFs
     k: int = 10  # The number of results to return
-
-    class Config:
-        """Configuration for this pydantic object."""
-        extra = Extra.forbid
+    model_config = ConfigDict(extra="forbid")
 
     def _pdf_search_results(self, search_term: str) -> str:
         import requests
