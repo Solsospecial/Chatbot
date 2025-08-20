@@ -1,24 +1,9 @@
 from langchain import hub
-# from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
 def get_prompt():
     prompt = hub.pull("hwchase17/openai-tools-agent")
     return prompt
 
-# def get_main_prompt():
-#     prompt = ChatPromptTemplate.from_messages(
-#         [
-#             ("system", f"""
-#     You are a helpful assistant. You are my Personal agent where  you need to work as Question and answering agent using uploaded Pdf or given URL or surf with internet. You are supposed to use the data shared with you, analyze it and answer my queries.
-#     Additionally, efficiently utilize chat history to track the context and details of ongoing conversations. This enables you to handle follow-up questions more effectively, ensuring continuity and relevance in your interactions with users.
-    
-#     """),
-#             MessagesPlaceholder("chat_history", optional=True),
-#             # MessagesPlaceholder("user_id"),
-#             ("human", "{input}"),
-#             # MessagesPlaceholder("agent_scratchpad"),
-#         ]
-#     )
-#     return prompt
 
 
 def get_query_refiner_prompt(conversation_str, query):
