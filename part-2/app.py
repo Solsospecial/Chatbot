@@ -1,5 +1,4 @@
 import streamlit as st
-# from dotenv import load_dotenv
 import os
 import requests
 import io
@@ -7,14 +6,8 @@ from pydantic_models import QueryRequest
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_openai_tools_agent
 from langchain.agents import AgentExecutor
-from gpt_utils import *
-from prompt import *
-
-# Load environment variables
-# load_dotenv()
-
-# Initialize Streamlit app
-st.title("Streamlit Chatbot with PDF and Web Search")
+from gpt_utils import pdf_tool, web_tool, google_tool
+from prompt import get_prompt
 
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -41,12 +34,14 @@ if "google_tool" not in st.session_state:
 if "prompt" not in st.session_state:
     st.session_state.prompt = get_prompt()
 
-# Streamlit interface
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    with st.chat_message('assistant'):
-        greeting = "Hi there! How can I help you?"
-        st.markdown(greeting)
+    
+if "initialized_greeting" not in st.session_state:
+    st.session_state.initialized_greeting = False
+    
+# Initialize Streamlit app
+st.title("Streamlit Chatbot with PDF and Web Search")
         
 with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
@@ -71,23 +66,43 @@ with st.sidebar:
         
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
-    llm = ChatGoogleGenerativeAI(api_key=GEMINI_API_KEY)
-    # Setup tools
-    tools = [
-        st.session_state.google_tool,
-        st.session_state.pdf_tool,
-        st.session_state.web_tool
-    ]
+    try:
+        llm = ChatGoogleGenerativeAI(
+            model="gemini-2.5-flash",
+            api_key=GEMINI_API_KEY
+        )
+        
+        # Setup tools
+        tools = [
+            st.session_state.google_tool,
+            st.session_state.pdf_tool,
+            st.session_state.web_tool
+        ]
+        
+        agent = create_openai_tools_agent(llm, tools, st.session_state.prompt)
+        st.session_state.agent_executor = AgentExecutor(
+            agent=agent,
+            tools=tools,
+            verbose=True,
+            handle_parsing_errors=True,
+            max_iterations=5
+        )
+    except Exception as e:
+        st.error(f"Failed to initialize agent: {e}")
+        st.stop()
     
-    agent = create_openai_tools_agent(llm, tools, st.session_state.prompt)
-    st.session_state.agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, handle_parsing_errors=True, max_iterations=5)
-
+# Show existing messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
-if not st.session_state.messages:
+        
+# Initialize geeting once
+if not st.session_state.initialized_greeting:
+    greeting = "Hi there! How can I help you?"
+    with st.chat_message("assistant"):
+        st.markdown(greeting)
     st.session_state.messages.append({"role": "assistant", "content": greeting})
+    st.session_state.initialized_greeting = True
 
 # Handle text input
 if query := st.chat_input("Enter your query:"):
