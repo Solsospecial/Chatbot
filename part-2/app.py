@@ -113,10 +113,10 @@ if query := st.chat_input("Enter your query:"):
     with st.spinner("Generating response..."):
         try:
             result = st.session_state.agent_executor.invoke({"input": query})
-            output = result['output]
+            output = result["output"]
         except Exception as e:
             output = f"Sorry, I ran into an error: {e}"
         
     with st.chat_message("assistant"):
-        st.markdown(result['output'])
+        st.markdown(output)
     st.session_state.messages.append({"role": "assistant", "content": output})
