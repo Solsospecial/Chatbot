@@ -6,7 +6,7 @@ from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 
 client = chromadb.Client()
-messages_collection = client.create_collection("messages_collection")
+messages_collection = client.get_or_create_collection("messages_collection")
 model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
 
 def load_pdf(pdf_file_path):
