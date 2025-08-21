@@ -51,11 +51,11 @@ async def query_messages(request: QueryRequest):
         num_res = len(results)
         logger.info(f"Web query '{query}' returned {num_res} result{'' if num_res < 2 else 's'}")
         
-        response_data = []
+        structured_response = []
         combined_text = ""
 
         for res in results:
-            response_data.append({
+            structured_response.append({
                 "content": res.page_content,
                 "metadata": res.metadata
             })
@@ -64,7 +64,7 @@ async def query_messages(request: QueryRequest):
             status_code=200,
             content={
                 "query": query,
-                "results": response_data,
+                "results": structured_response
             }
         )
 
