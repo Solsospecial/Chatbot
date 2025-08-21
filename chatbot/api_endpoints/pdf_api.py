@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI, HTTPException, Depends, File, UploadFile, BackgroundTasks, APIRouter
 from starlette.responses import HTMLResponse, JSONResponse
-from pydantic_models import QueryRequest, MessageResponse
+from pydantic_models import QueryRequest
 from typing import List
 from chrome import add_linkedin_messages, model, messages_collection,client  # Assuming these are imported correctly
 import os
@@ -46,12 +46,9 @@ async def upload_csv(file: UploadFile = File(...)):
     
 
 @router.post("/search_query_in_pdf/")
-        #   response_model=List[MessageResponse])
 async def query_messages(request: QueryRequest):
-    # bot_id = request.bot_id
     query=request.input
     collection1 = client.get_collection("messages_collection")
-    # return collection1.get()
     response_data = []
     print(collection1)
     db4 = Chroma(
