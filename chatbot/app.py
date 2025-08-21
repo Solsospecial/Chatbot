@@ -51,7 +51,7 @@ with st.sidebar:
         response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
         if response.status_code == 200:
             st.success("Messages added successfully")
-        st.session_state.upload_pdf = "positive"
+        st.session_state.upload_pdf = True
 
     elif url and "url" not in st.session_state:
         if not url.startswith(('http://', 'https://')):
@@ -63,7 +63,7 @@ with st.sidebar:
             else:
                 st.error(f"Failed to add messages. Status code: {response.status_code}")
                 st.error("Response content: " + response.text)
-        st.session_state.url = "Positive"
+        st.session_state.url = True
         
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
