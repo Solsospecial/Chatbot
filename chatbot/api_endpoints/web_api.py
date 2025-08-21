@@ -49,21 +49,26 @@ async def query_messages(request: QueryRequest):
             )
         
         num_res = len(results)
-        logger.info(f"Query '{query}' returned {num_res} result{'' if num_res < 2 else 's'}")
+        logger.info(f"Web query '{query}' returned {num_res} result{'' if num_res < 2 else 's'}")
         
         response_data = []
         combined_text = ""
 
         for res in result:
+            content = res.page_content
             response_data.append({
-                "content": res.page_content,
+                "content": content,
                 "metadata": res.metadata
             })
-            combined_text += res.page_content + " "
+            combined_text += content + " "
 
         return JSONResponse(
             status_code=200,
-            content={"results": response_data, "combined_text": combined_text.strip()}
+            content={
+                "query": query,
+                "results": response_data,
+                "combined_text": combined_text.strip()
+            }
         )
 
     except Exception as e:
