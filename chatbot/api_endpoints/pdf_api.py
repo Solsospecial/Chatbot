@@ -63,5 +63,8 @@ async def query_messages(request: QueryRequest):
         )
         
     except Exception as e:
-        logger.exception("Error during query")
-        return JSONResponse(status_code=500, content={"error": str(e)})
+        logger.exception(f"Error during PDF query: {e}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": str(e)}
+        )
