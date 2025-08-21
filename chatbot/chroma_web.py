@@ -1,16 +1,15 @@
 import chromadb
-from sentence_transformers import SentenceTransformer
 import pandas as pd
 import uuid
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
 web_data_collection = client.get_or_create_collection("webdata_collection")
 
 # Initialize the Sentence Transformer model
-model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 
 def load_web_data(url):
     try:
@@ -32,8 +31,6 @@ def process_web_data(data):
     if data is None:
         print("No data to process.")
         return False
-    
-    model = SentenceTransformer('all-MiniLM-L6-v2')
     
     # Prepare documents, embeddings, metadata, and ids
     documents = []
