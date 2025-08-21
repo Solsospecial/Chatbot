@@ -1,8 +1,8 @@
 from pdf_wrapper import PDFSearchAPIWrapper
 from web_wrapper import WebSearchAPIWrapper
-from langchain_community.utilities import GoogleSearchAPIWrapper
-# from langchain_core.tools import Tool
+from langchain_google_community.search import GoogleSearchAPIWrapper
 from langchain.tools.base import StructuredTool
+
 def google_tool():
     google_search = GoogleSearchAPIWrapper()
     google_tool = StructuredTool.from_function(
