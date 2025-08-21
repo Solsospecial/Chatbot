@@ -28,12 +28,12 @@ async def query_messages(request: QueryRequest):
     query = request.input
     
     # Access the ChromaDB collection
-    collection1 = client.get_collection("webdata_collection")
+    collection1 = client.get_collection("web_data_collection")
     
     # Initialize Chroma object for the collection
     db = Chroma(
         client=client,
-        collection_name="webdata_collection",
+        collection_name="web_data_collection",
         embedding_function=model,
     )
     
