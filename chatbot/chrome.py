@@ -6,7 +6,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
 messages_collection = client.get_or_create_collection("messages_collection")
-model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 def load_pdf(pdf_file_path):
     try:
