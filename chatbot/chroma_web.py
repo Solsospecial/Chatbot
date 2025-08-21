@@ -54,7 +54,6 @@ def process_web_data(data):
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
     
     print(metadata)
-    print(documents)
 
     # Embed the documents
     embeddings = model.embed_documents(documents)
@@ -73,7 +72,7 @@ def process_web_data(data):
 
 def add_web_data(url):
     # Load web data from the given URL
-    print(f"Loading data from {url}")
+    print(f"Loading data from {url}...")
     web_data = load_web_data(url)
 
     # Process web data and add it to the ChromaDB collection
