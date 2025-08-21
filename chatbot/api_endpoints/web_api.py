@@ -40,7 +40,7 @@ async def query_messages(request: QueryRequest):
         )
         
         # Perform a similarity search using the query
-        results = db.similarity_search(query=query, k=5)
+        results = db.similarity_search(query=query, k=10)
         
         if not results:
             return JSONResponse(
@@ -54,20 +54,17 @@ async def query_messages(request: QueryRequest):
         response_data = []
         combined_text = ""
 
-        for res in result:
-            content = res.page_content
+        for res in results:
             response_data.append({
-                "content": content,
+                "content": res.page_content,
                 "metadata": res.metadata
             })
-            combined_text += content + " "
 
         return JSONResponse(
             status_code=200,
             content={
                 "query": query,
                 "results": response_data,
-                "combined_text": combined_text.strip()
             }
         )
 
