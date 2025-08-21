@@ -7,7 +7,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 
 client = chromadb.Client()
-messages_collection = client.create_collection("webdata_collection")
+messages_collection = client.get_or_create_collection("webdata_collection")
 
 # Initialize the Sentence Transformer model
 model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
