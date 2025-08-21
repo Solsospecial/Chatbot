@@ -12,7 +12,7 @@ class PDFSearchAPIWrapper(BaseModel):
 
     def _pdf_search_results(self, search_term: str) -> str:
         import requests
-        response = requests.post(f"{self.api_url}/search_query_in_pdf", json={"input": search_term})
+        response = requests.post(f"{self.api_url}/search_query_in_pdf/", json={"input": search_term})
         if response.status_code == 200:
             return response.json()
         else:
