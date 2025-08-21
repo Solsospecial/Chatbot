@@ -64,7 +64,7 @@ def process_web_data(data):
         documents=documents,
         embeddings=embeddings.tolist(),  # Convert embeddings to a list
         metadata=metadata,
-        ids=ids,
+        ids=ids
     )
     
     num_of_docs = len(documents)
