@@ -1,7 +1,7 @@
 from fastapi import File, UploadFile, APIRouter
 from starlette.responses import JSONResponse
 from pydantic_models import QueryRequest
-from chrome import add_pdf_data, model, messages_collection,client
+from pdf_data import add_pdf_data, model, messages_collection,client
 import os
 from pathlib import Path
 from langchain_chroma import Chroma
