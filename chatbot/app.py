@@ -35,7 +35,8 @@ prompt = ChatPromptTemplate.from_messages(
         (
             "human", "{input}"
         )
-])
+    ]
+)
 
 # Initialize tools/prompt in session state
 if "pdf_tool" not in st.session_state:
