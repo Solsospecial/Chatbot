@@ -45,7 +45,7 @@ def process_web_data(data):
 
         # Prepare metadata
         meta_data = {
-            'source_url': document.metadata.get('source_url', 'unknown'),
+            'source_url': document.metadata.get('source', 'unknown'),
             'page_number': document.metadata.get('page_number', index + 1),
         }
         metadata.append(meta_data)
