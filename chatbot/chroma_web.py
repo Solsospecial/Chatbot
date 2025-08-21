@@ -67,8 +67,9 @@ def process_web_data(data):
         metadata=metadata,
         ids=ids,
     )
-
-    print(f"Stored {len(documents)} document(s) in ChromaDB.")
+    
+    num_of_docs = len(documents)
+    print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
 
 def add_web_data(url):
     # Load web data from the given URL
