@@ -1,7 +1,6 @@
 import chromadb
 import uuid
 from langchain.document_loaders import PyPDFLoader
-from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
@@ -10,7 +9,7 @@ model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2
 
 def load_pdf(pdf_file_path):
     try:
-        loader = PyPDFLoader(file_path=pdf_file_path)
+        loader = PyPDFLoader(pdf_file_path)
         data = loader.load()
         print(len(data))
         return data
