@@ -24,9 +24,9 @@ def process_messages(data):
         return
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
-    # Prepare documents, embeddings, metadatas, and ids
+    # Prepare documents, embeddings, metadata, and ids
     documents = []
-    metadatas = []
+    metadata = []
     ids = []
 
     for index, document in enumerate(data):
@@ -34,15 +34,15 @@ def process_messages(data):
         content = document.page_content
 
         # Prepare metadata
-        metadata = {
-            'page_number': document.metadata.get('page_number', index + 1)
+        meta_data = {
+            'page_number': document.metadata.get('page_number', index + 1),
         }
-        metadatas.append(metadata)
+        metadata.append(meta_data)
 
         # Collect document content for embedding
         documents.append(content)
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
-    print(metadatas)
+    print(metadata)
     print(documents)
 
     # Embed the documents
@@ -52,7 +52,7 @@ def process_messages(data):
     messages_collection.add(
         documents=documents,
         embeddings=embeddings.tolist(),  # Convert embeddings to a list
-        metadatas=metadatas,
+        metadata=metadata,
         ids=ids,
     )
 
