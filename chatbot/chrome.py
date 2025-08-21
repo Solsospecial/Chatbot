@@ -36,7 +36,6 @@ def process_messages(data):
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
     print(metadata)
-    print(documents)
 
     # Embed the documents
     embeddings = model.embed_documents(documents)
@@ -55,7 +54,7 @@ def process_messages(data):
     
 def add_linkedin_messages(pdf_file_path):
     # Load messages from PDF
-    print("Loadng Messages.")
+    print("Loading Messages...")
     messages_df = load_pdf(pdf_file_path)
     
     # Process messages and add to ChromaDB collection
