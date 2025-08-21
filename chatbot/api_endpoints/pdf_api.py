@@ -2,9 +2,9 @@ from fastapi import File, UploadFile, APIRouter
 from starlette.responses import JSONResponse
 from pydantic_models import QueryRequest
 from pdf_data_collector import add_pdf_data, model, client
-import os
 from pathlib import Path
 from langchain_chroma import Chroma
+import os
 import logging
 
 logger = logging.getLogger(__name__)
@@ -37,26 +37,26 @@ async def query_messages(request: QueryRequest):
     query = request.input
     logger.info(f"Received query: {query}")
     
-    collection = client.get_collection("pdf_data_collection")
-    response_data = []
-    print(collection)
-    db4 = Chroma(
-        client=client,
-        collection_name="pdf_data_collection",
-        embedding_function=model,
-    )
-    
-    print(collection)
-    print(query)
-    result = db4.similarity_search(query=query)
-    print(result)
-    response_data = []
-    extracted_data=""
-    print(collection)
-    for results in result:
-        metadata = results.metadata
-        content=results.page_content
-        extracted_data+=content
-        extracted_data+=" "
-    print(extracted_data)
-    return extracted_data
+    try:
+        collection = client.get_collection("pdf_data_collection")
+        logger.info(f"Loaded collection: {collection}")
+        
+        db4 = Chroma(
+            client=client,
+            collection_name="pdf_data_collection",
+            embedding_function=model,
+        )
+        
+        results = db4.similarity_search(query, k=5)
+        
+        num_res = len(results)
+        logger.info(f"Search returned {num_res} result{'' if num_res < 2 else 's'}")
+        
+        extracted_data = " ".join([res.page_content for res in results])
+        return JSONResponse(
+            status_code=200,
+            content={"query": query, "results": extracted_data}
+        )
+    except Exception as e:
+        logger.exception("Error during query")
+        return JSONResponse(status_code=500, content={"error": str(e)})
