@@ -13,7 +13,7 @@ def google_tool():
     )
     return google_tool
 
-# Configure Web Search tool
+# Configure Web URL Search tool
 def web_tool():
     web_search = WebSearchAPIWrapper()
     web_tool = StructuredTool.from_function(
