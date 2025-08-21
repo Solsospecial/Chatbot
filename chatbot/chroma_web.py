@@ -9,7 +9,7 @@ client = chromadb.Client()
 web_data_collection = client.get_or_create_collection("webdata_collection")
 
 # Initialize the Sentence Transformer model
-model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 def load_web_data(url):
     try:
