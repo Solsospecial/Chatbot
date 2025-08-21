@@ -42,7 +42,7 @@ async def query_messages(request: QueryRequest):
             embedding_function=model,
         )
         
-        results = db4.similarity_search(query, k=5)
+        results = db4.similarity_search(query=query, k=5)
         
         num_res = len(results)
         logger.info(f"Similar search returned {num_res} result{'' if num_res < 2 else 's'}")
