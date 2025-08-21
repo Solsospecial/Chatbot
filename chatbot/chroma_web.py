@@ -59,7 +59,6 @@ def process_web_data(data):
     # Embed the documents
     embeddings = model.encode(documents, convert_to_tensor=True)
     
-
     # Add documents to the ChromaDB collection
     messages_collection.add(
         documents=documents,
