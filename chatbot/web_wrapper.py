@@ -11,7 +11,7 @@ class WebSearchAPIWrapper(BaseModel):
     model_config = ConfigDict(extra="forbid")
     
     def _web_search_results(self, search_term: str) -> str:
-        response = requests.post(f"{self.api_url}/search_query_in_web", json={"input": search_term})
+        response = requests.post(f"{self.api_url}/search_query_in_web/", json={"input": search_term})
         if response.status_code == 200:
             return response.json()
         else:
