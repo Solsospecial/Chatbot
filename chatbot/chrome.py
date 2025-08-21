@@ -1,5 +1,4 @@
 import chromadb
-import pandas as pd
 import uuid
 from langchain.document_loaders import PyPDFLoader
 from langchain_community.embeddings import SentenceTransformerEmbeddings
@@ -41,12 +40,12 @@ def process_messages(data):
     print(documents)
 
     # Embed the documents
-    embeddings = model.encode(documents, convert_to_tensor=True)
+    embeddings = model.embed_documents(documents)
 
     # Add documents to the ChromaDB collection
     messages_collection.add(
         documents=documents,
-        embeddings=embeddings.tolist(),  # Convert embeddings to a list
+        embeddings=embeddings,
         metadata=metadata,
         ids=ids
     )
