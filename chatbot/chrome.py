@@ -1,13 +1,12 @@
 import chromadb
-from sentence_transformers import SentenceTransformer
 import pandas as pd
 import uuid
 from langchain_community.embeddings import SentenceTransformerEmbeddings
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
 messages_collection = client.get_or_create_collection("messages_collection")
-model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
 
 def load_pdf(pdf_file_path):
     try:
@@ -23,8 +22,6 @@ def process_messages(data):
     if data is None:
         print("Nothing is present")
         return False
-        
-    model = SentenceTransformer('all-MiniLM-L6-v2')
 
     # Prepare documents, embeddings, metadata, and ids
     documents = []
