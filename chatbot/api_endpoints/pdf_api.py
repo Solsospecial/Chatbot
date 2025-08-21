@@ -8,9 +8,7 @@ import os
 import logging
 
 logger = logging.getLogger(__name__)
-
-# Initialize router
-router = APIRouter()
+router = APIRouter() # Initialize router
 
 UPLOAD_DIRECTORY = Path("upload")
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)  # Ensure the directory exists
