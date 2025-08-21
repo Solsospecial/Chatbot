@@ -1,5 +1,4 @@
-from fastapi import FastAPI, Form
-from fastapi import FastAPI, HTTPException, Depends, File, UploadFile, BackgroundTasks, APIRouter
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from langchain_community.document_loaders import WebBaseLoader
 from web_data_collector import add_web_data, model, web_data_collection, client 
