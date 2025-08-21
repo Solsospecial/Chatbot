@@ -4,7 +4,7 @@ from langchain.document_loaders import PyPDFLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
-messages_collection = client.get_or_create_collection("messages_collection")
+pdf_data_collection = client.get_or_create_collection("pdf_data_collection")
 model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 def load_pdf(pdf_file_path):
@@ -17,7 +17,7 @@ def load_pdf(pdf_file_path):
         print(f"Error loading PDF file: {str(e)}")
         return None
 
-def process_messages(data):
+def process_pdf_data(data):
     if data is None:
         print("Nothing is present")
         return False
@@ -41,7 +41,7 @@ def process_messages(data):
     embeddings = model.embed_documents(documents)
 
     # Add documents to the ChromaDB collection
-    messages_collection.add(
+    pdf_data_collection.add(
         documents=documents,
         embeddings=embeddings,
         metadata=metadata,
@@ -55,8 +55,8 @@ def process_messages(data):
 def add_pdf_data(pdf_file_path):
     # Load data from PDF
     print("Loading PDF data...")
-    messages_df = load_pdf(pdf_file_path)
+    pdf_data_df = load_pdf(pdf_file_path)
     
-    # Process messages and add to ChromaDB collection
-    if process_messages(messages_df):
+    # Process PDF data and add to ChromaDB collection
+    if process_pdf_data(pdf_data_df):
         print("PDF processing complete.")
