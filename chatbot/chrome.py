@@ -1,6 +1,7 @@
 import chromadb
 import pandas as pd
 import uuid
+from langchain.document_loaders import PyPDFLoader
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
