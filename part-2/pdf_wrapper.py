@@ -1,7 +1,8 @@
+import requests
 from typing import Optional
-from langchain_core.callbacks.manager import CallbackManagerForToolRun
+from langchain_core.callbacks import CallbackManagerForToolRun
 from pydantic import BaseModel, ConfigDict
-from langchain_core.tools.base import BaseTool
+from langchain_core.tools import BaseTool
 
 class PDFSearchAPIWrapper(BaseModel):
     """Wrapper for PDF Search API."""
