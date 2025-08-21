@@ -24,10 +24,7 @@ async def scrape_webdata(request: WebDataRequest):
 async def query_messages(request: QueryRequest):
     # Extract query from request
     query = request.input
-    
-    # Access the ChromaDB collection
-    collection1 = client.get_collection("web_data_collection")
-    
+
     # Initialize Chroma object for the collection
     db = Chroma(
         client=client,
