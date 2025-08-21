@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.agents import create_openai_tools_agent, AgentExecutor
+from langchain.agents import create_tool_calling_agent, AgentExecutor
 from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
 
@@ -77,7 +77,7 @@ if "agent_executor" not in st.session_state:
             st.session_state.web_tool
         ]
         
-        agent = create_openai_tools_agent(llm, tools, st.session_state.prompt)
+        agent = create_tool_calling_agent(llm, tools, st.session_state.prompt)
         st.session_state.agent_executor = AgentExecutor(
             agent=agent,
             tools=tools,
