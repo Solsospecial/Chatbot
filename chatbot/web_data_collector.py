@@ -5,7 +5,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
-web_data_collection = client.get_or_create_collection("webdata_collection")
+web_data_collection = client.get_or_create_collection("web_data_collection")
 
 # Initialize the Sentence Transformer model
 model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
