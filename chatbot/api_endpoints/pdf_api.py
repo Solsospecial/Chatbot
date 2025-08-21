@@ -38,9 +38,6 @@ async def query_messages(request: QueryRequest):
     logger.info(f"Received query: {query}")
     
     try:
-        collection = client.get_collection("pdf_data_collection")
-        logger.info(f"Loaded collection '{collection.name}' with {collection.count()} documents")
-        
         db4 = Chroma(
             client=client,
             collection_name="pdf_data_collection",
