@@ -1,7 +1,7 @@
 from fastapi import File, UploadFile, APIRouter
 from starlette.responses import JSONResponse
 from pydantic_models import QueryRequest
-from pdf_data_collector import add_pdf_data, model, messages_collection,client
+from pdf_data_collector import add_pdf_data, model, pdf_data_collection, client
 import os
 from pathlib import Path
 from langchain_chroma import Chroma
@@ -26,7 +26,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         
     try:
         add_pdf_data(pdf_file_path=file_path)
-        return JSONResponse(status_code=200, content={"message": "LinkedIn messages uploaded and processed successfully."})
+        return JSONResponse(status_code=200, content={"message": "PDF file uploaded and processed successfully."})
     except Exception as e:
         logger.exception("Error while processing PDF")
         return JSONResponse(status_code=500, content={"error": f"Failed to process the PDF file: {str(e)}"})
@@ -34,12 +34,12 @@ async def upload_pdf(file: UploadFile = File(...)):
 @router.post("/search_query_in_pdf/")
 async def query_messages(request: QueryRequest):
     query=request.input
-    collection1 = client.get_collection("messages_collection")
+    collection1 = client.get_collection("pdf_data_collection")
     response_data = []
     print(collection1)
     db4 = Chroma(
         client=client,
-        collection_name="messages_collection",
+        collection_name="pdf_data_collection",
         embedding_function=model,
     )
     
