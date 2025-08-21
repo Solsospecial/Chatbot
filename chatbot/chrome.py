@@ -22,7 +22,8 @@ def load_pdf(pdf_file_path):
 def process_messages(data):
     if data is None:
         print("Nothing is present")
-        return
+        return False
+        
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
     # Prepare documents, embeddings, metadata, and ids
@@ -59,12 +60,13 @@ def process_messages(data):
 
     num_of_docs = len(documents)
     print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
-
+    return True
+    
 def add_linkedin_messages(pdf_file_path):
     # Load messages from PDF
     print("Loadng Messages.")
     messages_df = load_pdf(pdf_file_path)
     
     # Process messages and add to ChromaDB collection
-    process_messages(messages_df)
-    print("Processing")
+    if process_messages(messages_df):
+        print("Processing")
