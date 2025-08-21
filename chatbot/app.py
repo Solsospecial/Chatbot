@@ -21,11 +21,20 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 """
 
-# Build prompt
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a helpful assistant."),
-    ("human", "{input}"),
-    ("agent_scratchpad", "{agent_scratchpad}")
+# Build prompt template
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system", """You are a helpful assistant.
+            You have been equipped with tools to:
+            1. Chat with the user about uploaded PDFs.
+            2. Perform Google searches to retrieve information.
+            3. Open a web URL when provided.
+            """
+        ),
+        (
+            "human", "{input}"
+        )
 ])
 
 # Initialize tools/prompt in session state
@@ -75,7 +84,7 @@ with st.sidebar:
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
-        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", max_retries=2)
         
         # Setup tools
         tools = [
