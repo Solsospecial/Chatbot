@@ -16,9 +16,16 @@ def load_web_data(url):
         # Create a WebBaseLoader instance with the provided URL
         loader = WebBaseLoader(url)
         
-        # Load the web page content
+        # Load the web page conten
         data = loader.load()
-        document_chunks = RecursiveCharacterTextSplitter().split_documents(data)
+        
+        # Split into chunks
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=800,
+            chunk_overlap=100
+        )
+        document_chunks = text_splitter.split_documents(data)
+        
         print(f"Loaded {len(document_chunks)} documents from {url}")
         print(document_chunks)
         return document_chunks
@@ -33,23 +40,18 @@ def process_web_data(data):
         return False
     
     # Prepare documents, embeddings, metadata, and ids
-    documents = []
-    metadata = []
-    ids = []
+    documents, metadata, ids = [], [], []
 
     for index, document in enumerate(data):
-        # Extract page content from the document
-        content = document.page_content
+        # Extract document content for embedding
+        documents.append(document.page_content)
 
         # Prepare metadata
-        meta_data = {
+        metadata.append({
             'source_url': document.metadata.get('source', 'unknown'),
-            'page_number': document.metadata.get('page_number', index + 1),
-        }
-        metadata.append(meta_data)
-
-        # Collect document content for embedding
-        documents.append(content)
+            'chunk_number': index + 1
+        })
+        
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
     print(metadata)
     print(documents)
