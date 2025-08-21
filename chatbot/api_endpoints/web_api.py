@@ -42,22 +42,33 @@ async def query_messages(request: QueryRequest):
         # Perform a similarity search using the query
         results = db.similarity_search(query=query, k=5)
         
-        # Extract relevant content and metadata from the results
-        response_data = []
-        extracted_data=''
-        for results in result:
-            metadata = results.metadata
-            content = results.page_content
-            
-            # Construct the search result
-            extracted_data+=content
-            extracted_data+=' '
-        print(extracted_data)
+        if not results:
+            return JSONResponse(
+                status_code=404,
+                content={"message": "No relevant documents found."}
+            )
         
-        # Return the search results
-        return extracted_data
-    
-    
-    
-    
-    
+        num_res = len(results)
+        logger.info(f"Query '{query}' returned {num_res} result{'' if num_res < 2 else 's'}")
+        
+        response_data = []
+        combined_text = ""
+
+        for res in result:
+            response_data.append({
+                "content": res.page_content,
+                "metadata": res.metadata
+            })
+            combined_text += res.page_content + " "
+
+        return JSONResponse(
+            status_code=200,
+            content={"results": response_data, "combined_text": combined_text.strip()}
+        )
+
+    except Exception as e:
+        logger.error(f"Web search failed for query '{query}': {e}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Search failed: {str(e)}"}
+        )
