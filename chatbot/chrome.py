@@ -52,9 +52,9 @@ def process_messages(data):
     print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
     return True
     
-def add_linkedin_messages(pdf_file_path):
-    # Load messages from PDF
-    print("Loading Messages...")
+def add_pdf_data(pdf_file_path):
+    # Load data from PDF
+    print("Loading PDF data...")
     messages_df = load_pdf(pdf_file_path)
     
     # Process messages and add to ChromaDB collection
