@@ -25,22 +25,17 @@ def process_messages(data):
         return False
 
     # Prepare documents, embeddings, metadata, and ids
-    documents = []
-    metadata = []
-    ids = []
+    documents, metadata, ids = [], [], []
 
     for index, document in enumerate(data):
-        # Extract page content from the document
-        content = document.page_content
+        # Extract document content from embedding
+        documents.append(document.page_content)
 
         # Prepare metadata
-        meta_data = {
-            'page_number': document.metadata.get('page_number', index + 1),
-        }
-        metadata.append(meta_data)
+        metadata.append({
+            'page_number': document.metadata.get('page_number', index + 1)
+        })
 
-        # Collect document content for embedding
-        documents.append(content)
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
     print(metadata)
     print(documents)
@@ -53,7 +48,7 @@ def process_messages(data):
         documents=documents,
         embeddings=embeddings.tolist(),  # Convert embeddings to a list
         metadata=metadata,
-        ids=ids,
+        ids=ids
     )
 
     num_of_docs = len(documents)
