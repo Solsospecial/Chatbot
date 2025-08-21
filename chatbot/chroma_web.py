@@ -1,5 +1,4 @@
 import chromadb
-import pandas as pd
 import uuid
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -53,16 +52,17 @@ def process_web_data(data):
         })
         
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
+    
     print(metadata)
     print(documents)
 
     # Embed the documents
-    embeddings = model.encode(documents, convert_to_tensor=True)
+    embeddings = model.embed_documents(documents, convert_to_tensor=True)
     
     # Add documents to the ChromaDB collection
     web_data_collection.add(
         documents=documents,
-        embeddings=embeddings.tolist(),  # Convert embeddings to a list
+        embeddings=embeddings,
         metadata=metadata,
         ids=ids
     )
