@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException, Depends, File, UploadFile, Backgroun
 
 from fastapi.responses import JSONResponse
 from langchain_community.document_loaders import WebBaseLoader
-from chroma_web import add_web_data, model, messages_collection,client 
+from web_data import add_web_data, model, messages_collection,client 
 import chromadb
 from langchain_chroma import Chroma
 
