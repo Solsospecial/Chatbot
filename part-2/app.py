@@ -3,7 +3,7 @@ import os
 import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_openai_tools_agent, AgentExecutor
-from gpt_utils import pdf_tool, web_tool, google_tool
+from tools import pdf_tool, web_tool, google_tool
 from langchain_core.prompts import ChatPromptTemplate
 
 # Streamlit configuration
