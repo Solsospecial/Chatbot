@@ -13,6 +13,7 @@ def prompt():
                 
                 Use the right tool depending on the user query/request, and then respond helpfully in natural language."""
             ),
+            ("placeholder", "{chat_history}"),
             ("human", "{input}"),
             ("placeholder", "{agent_scratchpad}"),
         ]
