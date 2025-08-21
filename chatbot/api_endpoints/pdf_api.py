@@ -52,11 +52,21 @@ async def query_messages(request: QueryRequest):
         num_res = len(results)
         logger.info(f"Search returned {num_res} result{'' if num_res < 2 else 's'}")
         
-        extracted_data = " ".join([res.page_content for res in results])
+        structured_results = []
+        for res in results:
+            structured_results.append({
+                "page_number": res.metadata.get("page_number"),
+                "content": res.page_content
+            })
+
         return JSONResponse(
             status_code=200,
-            content={"query": query, "results": extracted_data}
+            content={
+                "query": query,
+                "results": structured_results
+            }
         )
+        
     except Exception as e:
         logger.exception("Error during query")
         return JSONResponse(status_code=500, content={"error": str(e)})
