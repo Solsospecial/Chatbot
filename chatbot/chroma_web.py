@@ -5,9 +5,7 @@ import uuid
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import SentenceTransformerEmbeddings
-# from langchain_community.document_loaders.csv_loader import CSVLoader
-# from langchain_community.document_loaders import PyPDFLoader
-# Initialize ChromaDB client and collection
+
 client = chromadb.Client()
 messages_collection = client.create_collection("webdata_collection")
 
@@ -21,8 +19,7 @@ def load_web_data(url):
         
         # Load the web page content
         data = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter()
-        document_chunks = text_splitter.split_documents(data)
+        document_chunks = RecursiveCharacterTextSplitter().split_documents(data)
         print(f"Loaded {len(document_chunks)} documents from {url}")
         print(document_chunks)
         return document_chunks
@@ -37,9 +34,9 @@ def process_web_data(data):
         return
     model = SentenceTransformer('all-MiniLM-L6-v2')
     
-    # Prepare documents, embeddings, metadatas, and ids
+    # Prepare documents, embeddings, metadata, and ids
     documents = []
-    metadatas = []
+    metadata = []
     ids = []
 
     for index, document in enumerate(data):
@@ -47,16 +44,16 @@ def process_web_data(data):
         content = document.page_content
 
         # Prepare metadata
-        metadata = {
+        meta_data = {
             'source_url': document.metadata.get('source_url', 'unknown'),
             'page_number': document.metadata.get('page_number', index + 1),
         }
-        metadatas.append(metadata)
+        metadata.append(meta_data)
 
         # Collect document content for embedding
         documents.append(content)
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
-    print(metadatas)
+    print(metadata)
     print(documents)
 
     # Embed the documents
@@ -67,7 +64,7 @@ def process_web_data(data):
     messages_collection.add(
         documents=documents,
         embeddings=embeddings.tolist(),  # Convert embeddings to a list
-        metadatas=metadatas,
+        metadata=metadata,
         ids=ids,
     )
 
@@ -81,5 +78,3 @@ def add_web_data(url):
     # Process web data and add it to the ChromaDB collection
     process_web_data(web_data)
     print("Web data processing complete.")
-
-# Example usage
