@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+rcfrom fastapi import APIRouter, BackgroundTasks
 from fastapi.responses import JSONResponse
 from langchain_community.document_loaders import WebBaseLoader
 from web_data_collector import add_web_data, model, web_data_collection, client 
