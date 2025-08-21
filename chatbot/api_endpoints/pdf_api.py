@@ -1,7 +1,7 @@
 from fastapi import File, UploadFile, APIRouter
 from starlette.responses import JSONResponse
 from pydantic_models import QueryRequest
-from chrome import add_linkedin_messages, model, messages_collection,client
+from chrome import add_pdf_data, model, messages_collection,client
 import os
 from pathlib import Path
 from langchain_chroma import Chroma
@@ -25,7 +25,7 @@ async def upload_pdf(file: UploadFile = File(...)):
     logger.info(f"File saved successfully: {file_path}")
         
     try:
-        add_linkedin_messages(pdf_file_path=file_path)
+        add_pdf_data(pdf_file_path=file_path)
         return JSONResponse(status_code=200, content={"message": "LinkedIn messages uploaded and processed successfully."})
     except Exception as e:
         logger.exception("Error while processing PDF")
