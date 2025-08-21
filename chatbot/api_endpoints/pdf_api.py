@@ -39,7 +39,7 @@ async def query_messages(request: QueryRequest):
     
     try:
         collection = client.get_collection("pdf_data_collection")
-        logger.info(f"Loaded collection: {collection}")
+        logger.info(f"Loaded collection '{collection.name}' with {collection.count()} documents")
         
         db4 = Chroma(
             client=client,
@@ -50,7 +50,7 @@ async def query_messages(request: QueryRequest):
         results = db4.similarity_search(query, k=5)
         
         num_res = len(results)
-        logger.info(f"Search returned {num_res} result{'' if num_res < 2 else 's'}")
+        logger.info(f"Similar search returned {num_res} result{'' if num_res < 2 else 's'}")
         
         structured_results = []
         for res in results:
