@@ -7,7 +7,7 @@ from chroma_web import add_web_data, model, messages_collection,client
 import chromadb
 from langchain_chroma import Chroma
 
-from pydantic_models import QueryRequest,WebDataRequest
+from pydantic_models import QueryRequest, WebDataRequest
 router = APIRouter()
 
 @router.post("/scrape_webdata/")
