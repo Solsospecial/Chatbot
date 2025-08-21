@@ -1,7 +1,7 @@
 from fastapi import File, UploadFile, APIRouter
 from starlette.responses import JSONResponse
 from pydantic_models import QueryRequest
-from pdf_data_collector import add_pdf_data, model, pdf_data_collection, client
+from pdf_data_collector import add_pdf_data, model, client
 import os
 from pathlib import Path
 from langchain_chroma import Chroma
@@ -19,6 +19,7 @@ os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)  # Ensure the directory exists
 async def upload_pdf(file: UploadFile = File(...)):
     if not file.filename.endswith('.pdf'):
         return JSONResponse(status_code=400, content={"error": "Only PDF allowed"})
+    
     file_path = UPLOAD_DIRECTORY / file.filename
     with open(file_path, "wb") as pdf_file:
         pdf_file.write(await file.read())
@@ -33,23 +34,25 @@ async def upload_pdf(file: UploadFile = File(...)):
     
 @router.post("/search_query_in_pdf/")
 async def query_messages(request: QueryRequest):
-    query=request.input
-    collection1 = client.get_collection("pdf_data_collection")
+    query = request.input
+    logger.info(f"Received query: {query}")
+    
+    collection = client.get_collection("pdf_data_collection")
     response_data = []
-    print(collection1)
+    print(collection)
     db4 = Chroma(
         client=client,
         collection_name="pdf_data_collection",
         embedding_function=model,
     )
     
-    print(collection1)
+    print(collection)
     print(query)
     result = db4.similarity_search(query=query)
     print(result)
     response_data = []
     extracted_data=""
-    print(collection1)
+    print(collection)
     for results in result:
         metadata = results.metadata
         content=results.page_content
