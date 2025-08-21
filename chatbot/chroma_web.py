@@ -57,7 +57,7 @@ def process_web_data(data):
     print(documents)
 
     # Embed the documents
-    embeddings = model.embed_documents(documents, convert_to_tensor=True)
+    embeddings = model.embed_documents(documents)
     
     # Add documents to the ChromaDB collection
     web_data_collection.add(
