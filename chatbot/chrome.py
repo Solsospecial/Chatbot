@@ -69,4 +69,4 @@ def add_linkedin_messages(pdf_file_path):
     
     # Process messages and add to ChromaDB collection
     if process_messages(messages_df):
-        print("Processing")
+        print("PDF processing complete.")
