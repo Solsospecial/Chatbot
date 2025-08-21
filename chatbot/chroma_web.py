@@ -31,7 +31,8 @@ def load_web_data(url):
 def process_web_data(data):
     if data is None:
         print("No data to process.")
-        return
+        return False
+    
     model = SentenceTransformer('all-MiniLM-L6-v2')
     
     # Prepare documents, embeddings, metadata, and ids
@@ -69,6 +70,7 @@ def process_web_data(data):
     
     num_of_docs = len(documents)
     print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
+    return True
 
 def add_web_data(url):
     # Load web data from the given URL
@@ -76,5 +78,5 @@ def add_web_data(url):
     web_data = load_web_data(url)
 
     # Process web data and add it to the ChromaDB collection
-    process_web_data(web_data)
-    print("Web data processing complete.")
+    if process_web_data(web_data):
+        print("Web data processing complete.")
