@@ -45,7 +45,7 @@ async def query_messages(request: QueryRequest):
         results = db4.similarity_search(query=query, k=5)
         
         num_res = len(results)
-        logger.info(f"Query '{query}' returned {num_res} result{'' if num_res < 2 else 's'}")
+        logger.info(f"PDF query '{query}' returned {num_res} result{'' if num_res < 2 else 's'}")
         
         structured_results = []
         for res in results:
