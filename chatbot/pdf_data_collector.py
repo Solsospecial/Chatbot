@@ -9,7 +9,7 @@ model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2
 
 def load_pdf(pdf_file_path):
     try:
-        loader = PyPDFLoader(pdf_file_path)
+        loader = PyPDFLoader(pdf_file_path, mode="page")
         data = loader.load()
         print(len(data))
         return data
@@ -31,10 +31,12 @@ def process_pdf_data(data):
 
         # Prepare metadata
         metadata.append({
-            'page_number': document.metadata.get('page', index + 1)
+            'page_number': index + 1,
+            'total_pages': document.metadata.get('total_pages', 'unknown')
         })
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
+    
     print(metadata)
 
     # Embed the documents
