@@ -9,7 +9,7 @@ def google_tool():
     google_tool = StructuredTool.from_function(
         func=google_search.run,
         name="google-search",
-        description="Uses Google Search Engine to look for recent results."
+        description="Search Google and return the most relevant results for the user query."
     )
     return google_tool
 
@@ -19,7 +19,7 @@ def web_tool():
     web_tool = StructuredTool.from_function(
         func=web_search.run,
         name="web-search",
-        description="Searches through web URL data to get relevant chunk(s) based on the user-query."
+        description="Search web URLs and return the most relevant chunks of information for the user query."
     )
     return web_tool
 
@@ -29,6 +29,6 @@ def pdf_tool():
     pdf_tool = StructuredTool.from_function(
         func=pdf_search.run,
         name="pdf-search",
-        description="Searches in PDF data to get the relevant texts based on the user-query."
+        description="Search PDF documents and return the most relevant text segments for the user query."
     )
     return pdf_tool
