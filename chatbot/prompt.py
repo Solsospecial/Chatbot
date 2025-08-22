@@ -5,18 +5,13 @@ def prompt():
     prompt = ChatPromptTemplate.from_messages(
         [
             (
-<<<<<<< HEAD
                 "system",
                 """You are a helpful assistant.
 
-=======
-                "system", """You are a helpful assistant.
->>>>>>> parent of a2482d7 (Update prompt.py)
                 You have been equipped with tools to:
                 1. Chat with the user about uploaded PDFs.
                 2. Perform Google searches to retrieve information.
                 3. Open a web URL and scrape information from it.
-<<<<<<< HEAD
 
                 --- TIME GUIDELINE ---
                 - Whenever a user’s request involves time-sensitive information
@@ -47,10 +42,6 @@ def prompt():
                   to check yourself before answering.
                 - Always respond helpfully in natural language after using tools.
                 """
-=======
-                
-                Use the right tool depending on the user query/request, and then respond helpfully in natural language."""
->>>>>>> parent of a2482d7 (Update prompt.py)
             ),
             ("placeholder", "{chat_history}"),
             ("human", "{input}"),
