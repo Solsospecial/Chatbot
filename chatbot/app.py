@@ -6,6 +6,9 @@ from langchain.agents import create_tool_calling_agent, AgentExecutor
 from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
 
+# Streamlit configuration
+st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
+
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
@@ -33,9 +36,6 @@ st.write(st.session_state.messages)
 # For the chatbot's greeting message
 if "initialized_greeting" not in st.session_state:
     st.session_state.initialized_greeting = False
-
-# Streamlit configuration
-st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
 
 # Streamlit setup
 st.title("Streamlit Chatbot with PDF and Web Search")
