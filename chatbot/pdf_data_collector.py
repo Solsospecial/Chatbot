@@ -30,7 +30,10 @@ def process_pdf_data(data):
         documents.append(document.page_content)
 
         # Prepare metadata
-        metadata.append({'page_number': index + 1})
+        metadata.append({
+            'page_number': index + 1,
+            'total_pages': document.metadata.get('total_pages', 'unknown')
+        })
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
     
