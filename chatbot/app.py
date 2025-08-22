@@ -111,3 +111,4 @@ if query := st.chat_input("Enter your query:"):
     with st.chat_message("assistant"):
         st.markdown(output)
     st.session_state.messages.append({"role": "assistant", "content": output})
+    st.rerun()
