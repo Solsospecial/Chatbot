@@ -32,7 +32,6 @@ if "messages" not in st.session_state:
 if "initialized_greeting" not in st.session_state:
     st.session_state.initialized_greeting = False
 
-
 # Streamlit configuration
 st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
 
