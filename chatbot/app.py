@@ -76,7 +76,7 @@ if "agent_executor" not in st.session_state:
             agent=agent,
             tools=tools,
             verbose=True,
-            handle_parsing_errors=True,
+            handle_parsing_errors=False,
             max_iterations=5
         )
     except Exception as e:
