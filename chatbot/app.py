@@ -3,7 +3,6 @@ import os
 import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
-from langchain.memory import ConversationBufferWindowMemory
 from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
 
@@ -26,17 +25,13 @@ if "google_tool" not in st.session_state:
 if "prompt" not in st.session_state:
     st.session_state.prompt = prompt()
 
-# Initialize LangChain memory
-if "memory" not in st.session_state:
-    st.session_state.memory = ConversationBufferWindowMemory(
-        memory_key="chat_history",
-        k=10,   # Keep last 10 conversation turns only
-        return_messages=True
-    )
-
-# Set flag for the chatbot's greeting message
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    
+# For the chatbot's greeting message
 if "initialized_greeting" not in st.session_state:
     st.session_state.initialized_greeting = False
+
 
 # Streamlit configuration
 st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
@@ -77,13 +72,7 @@ if "agent_executor" not in st.session_state:
             st.session_state.web_tool
         ]
         
-        agent = create_tool_calling_agent(
-            llm,
-            tools,
-            st.session_state.prompt,
-            memory=st.session_state.memory
-        )
-        
+        agent = create_tool_calling_agent(llm, tools, st.session_state.prompt)
         st.session_state.agent_executor = AgentExecutor(
             agent=agent,
             tools=tools,
@@ -95,24 +84,22 @@ if "agent_executor" not in st.session_state:
         st.error(f"Failed to initialize agent: {e}")
         st.stop()
     
-# Show existing messages from memory
-for msg in st.session_state.memory.chat_memory.messages:
-    role = msg.type  # 'human' or 'ai'
-    content = msg.content
-    with st.chat_message(role):
-        st.markdown(content)
+# Show existing messages
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
         
 # Initialize geeting once
 if not st.session_state.initialized_greeting:
     greeting = "Hi there! How can I help you?"
     with st.chat_message("assistant"):
         st.markdown(greeting)
-    st.session_state.memory.chat_memory.add_ai_message(greeting)
+    st.session_state.messages.append({"role": "assistant", "content": greeting})
     st.session_state.initialized_greeting = True
 
 # Handle text input
 if query := st.chat_input("Enter your query:"):
-    st.session_state.memory.chat_memory.add_user_message(query)
+    st.session_state.messages.append({"role": "user", "content": query})
     with st.chat_message("user"):
         st.markdown(query)
     with st.spinner("Generating response..."):
@@ -124,4 +111,4 @@ if query := st.chat_input("Enter your query:"):
         
     with st.chat_message("assistant"):
         st.markdown(output)
-    st.session_state.memory.chat_memory.add_ai_message(output)
+    st.session_state.messages.append({"role": "assistant", "content": output})
