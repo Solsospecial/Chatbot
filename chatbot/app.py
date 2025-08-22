@@ -31,8 +31,6 @@ if "prompt" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
     
-st.write(st.session_state.messages)
-
 # For the chatbot's greeting message
 if "initialized_greeting" not in st.session_state:
     st.session_state.initialized_greeting = False
@@ -107,7 +105,7 @@ if query := st.chat_input("Enter your query:"):
         try:
             result = st.session_state.agent_executor.invoke({
                 "input": query,
-                "chat_history": st.session_state.messages[-20:]
+                "chat_history": st.session_state.messages[-50:]
             })
             output = result["output"]
         except Exception as e:
@@ -116,4 +114,3 @@ if query := st.chat_input("Enter your query:"):
     with st.chat_message("assistant"):
         st.markdown(output)
     st.session_state.messages.append({"role": "assistant", "content": output})
-    st.rerun()
