@@ -1,6 +1,6 @@
 import chromadb
 import uuid
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 
 client = chromadb.Client()
@@ -31,7 +31,7 @@ def process_pdf_data(data):
 
         # Prepare metadata
         metadata.append({
-            'page_number': document.metadata.get('page_number', index + 1)
+            'page_number': document.metadata.get('page', index + 1)
         })
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
