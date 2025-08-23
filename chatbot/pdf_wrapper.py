@@ -23,11 +23,11 @@ class PDFSearchAPIWrapper(BaseModel):
         return self._pdf_search_results(query)
 
 class PDFSearchRun(BaseTool):
-    """Tool that queries the PDF search API."""
+    """Tool for searching stored PDF documents."""
     name: str = "pdf_search"
     description: str = (
-        "A wrapper around the PDF Search API."
-        "Useful for searching relevant information within PDF document text chunks."
+        "A wrapper around the PDF Search API. "
+        "Useful for retrieving relevant information from PDF documents that were previously uploaded into the knowledge base. "
         "Input should be a search query."
     )
     api_wrapper: PDFSearchAPIWrapper
