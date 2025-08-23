@@ -89,3 +89,12 @@ NameError: name 'num_of_docs' is not defined
 2025-08-23 16:31:54,305 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
 2025-08-23 16:31:57,339 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
 2025-08-23 16:40:19,388 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
+2025-08-23 16:40:49,402 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/Resume (2).pdf
+2025-08-23 16:40:50,591 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 16:42:01,247 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/Resume (2).pdf
+2025-08-23 16:42:24,930 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/Resume (2).pdf
+2025-08-23 16:42:30,527 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/Resume (2).pdf
+2025-08-23 16:43:12,209 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/Resume (2).pdf
+2025-08-23 16:43:14,695 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
+2025-08-23 16:43:26,289 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
+2025-08-23 16:43:40,532 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
