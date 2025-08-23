@@ -42,3 +42,13 @@ TypeError: Collection.add() got an unexpected keyword argument 'metadata'
 2025-08-23 04:39:20,492 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://google.com
 2025-08-23 04:46:22,816 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://google.com
 2025-08-23 04:46:23,453 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 04:51:03,991 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 04:51:19,394 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 04:51:31,086 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 04:51:31,502 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summarize it
+2025-08-23 04:51:31,503 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 04:51:31,516 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 04:51:31,519 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summarize it' returned 0 result
+2025-08-23 04:51:47,896 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 04:52:14,763 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 04:52:34,483 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
