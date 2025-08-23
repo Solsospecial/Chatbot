@@ -22,7 +22,7 @@ def prompt():
         [
             (
                 "system",
-                f"""You are a helpful assistant.
+                f"""You are TriKnow--a helpful assistant.
 
 --- CURRENT SESSION DATE/TIME ---
 {utc_now}
