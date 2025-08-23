@@ -8,7 +8,7 @@ def google_tool():
     google_search = GoogleSearchAPIWrapper()
     google_tool = StructuredTool.from_function(
         func=google_search.run,
-        name="Google Search",
+        name="google_search",
         description="Perform a live Google search and return recent snippets or metadata relevant to the user query."
     )
     return google_tool
@@ -18,7 +18,7 @@ def web_tool():
     web_search = WebSearchAPIWrapper()
     web_tool = StructuredTool.from_function(
         func=web_search.run,
-        name="Web Data Search",
+        name="web_data_search",
         description="Search stored web page content that was previously added to the knowledge base and return relevant text chunks."
     )
     return web_tool
@@ -28,7 +28,7 @@ def pdf_tool():
     pdf_search = PDFSearchAPIWrapper()
     pdf_tool = StructuredTool.from_function(
         func=pdf_search.run,
-        name="PDF Search",
+        name="pdf_search",
         description="Search stored PDF documents that were previously uploaded into the knowledge base and return relevant text segments."
     )
     return pdf_tool
