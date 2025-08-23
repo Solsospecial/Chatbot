@@ -23,7 +23,7 @@ class WebSearchAPIWrapper(BaseModel):
 
 class WebSearchRun(BaseTool):
     """Tool for searching stored web page content."""
-    name: str = "web_search"
+    name: str = "web_data_search"
     description: str = (
         "A wrapper around the Web Search API. "
         "Useful for retrieving relevant information from web pages that were previously ingested into the knowledge base. "
