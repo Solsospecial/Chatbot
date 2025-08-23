@@ -62,7 +62,7 @@ with st.sidebar:
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
-        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", max_retries=2)
+        llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro", max_retries=2)
         
         # Setup tools
         tools = [
@@ -105,7 +105,7 @@ if query := st.chat_input("Enter your query:"):
         try:
             result = st.session_state.agent_executor.invoke({
                 "input": query,
-                "chat_history": st.session_state.messages[-50:]
+                "chat_history": st.session_state.messages[-30:]
             })
             output = result["output"]
         except Exception as e:
