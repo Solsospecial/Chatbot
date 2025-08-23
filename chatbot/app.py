@@ -31,10 +31,6 @@ if "prompt" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
     
-# For the chatbot's greeting message
-if "initialized_greeting" not in st.session_state:
-    st.session_state.initialized_greeting = False
-
 # Initialize tracking of uploaded PDFs and accessed URLs
 if "pdfs" not in st.session_state:
     st.session_state.pdfs = []
@@ -46,7 +42,7 @@ if "urls" not in st.session_state:
 st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
 
 st.markdown("<br>", unsafe_allow_html=True)
-st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind!")
+st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind! 😊")
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 with st.sidebar:
@@ -112,14 +108,6 @@ if "agent_executor" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-        
-# Initialize geeting once
-if not st.session_state.initialized_greeting:
-    greeting = "How can I help you today? 😊"
-    with st.chat_message("assistant"):
-        st.markdown(greeting)
-    st.session_state.messages.append({"role": "assistant", "content": greeting})
-    st.session_state.initialized_greeting = True
 
 # Handle text input
 if query := st.chat_input("Enter your query:"):
