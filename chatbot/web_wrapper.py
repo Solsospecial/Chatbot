@@ -6,7 +6,7 @@ from langchain_core.tools import BaseTool
 
 class WebSearchAPIWrapper(BaseModel):
     """Wrapper for Web Search API."""
-    api_url:str= "http://127.0.0.1:8000"  # The API URL for searching the web
+    api_url:str= "http://127.0.0.1:8000"  # The API URL for searching stored web pages
     k: int = 10  # The number of results to return
     model_config = ConfigDict(extra="forbid")
     
@@ -18,15 +18,15 @@ class WebSearchAPIWrapper(BaseModel):
             return "❌ Failed to fetch results!"
 
     def run(self, query: str) -> str:
-        """Run query through Web Search and parse the result."""
+        """Run query through Web Data Search and parse the result."""
         return self._web_search_results(query)
 
 class WebSearchRun(BaseTool):
-    """This tool queries the Web search API."""
+    """Tool for searching stored web page content."""
     name: str = "web_search"
     description: str = (
-        "A wrapper around the Web Search API."
-        "Useful for searching relevant information from web URL text chunks."
+        "A wrapper around the Web Search API. "
+        "Useful for retrieving relevant information from web pages that were previously ingested into the knowledge base. "
         "Input should be a search query."
     )
     api_wrapper: WebSearchAPIWrapper
