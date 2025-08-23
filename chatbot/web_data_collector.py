@@ -23,10 +23,10 @@ def load_web_data(url):
             chunk_size=800,
             chunk_overlap=100
         )
-        document_chunks = text_splitter.split_documents(data)
+        page_chunks = text_splitter.split_documents(data)
         
-        print(f"Loaded {len(document_chunks)} documents from {url}")
-        return document_chunks
+        print(f"Loaded {len(page_chunks)} chunks from {url}")
+        return page_chunks
 
     except Exception as e:
         print(f"Error loading web data: {str(e)}")
@@ -37,34 +37,34 @@ def process_web_data(data):
         print("No data to process.")
         return False
     
-    # Prepare documents, embeddings, metadata, and ids
-    documents, metadatas, ids = [], [], []
+    # Prepare chunks, embeddings, metadata, and ids
+    chunks, metadatas, ids = [], [], []
 
-    for index, document in enumerate(data):
-        # Extract document content for embedding
-        documents.append(document.page_content)
+    for index, chunk in enumerate(data):
+        # Extract chunk content
+        chunks.append(chunk.page_content)
 
         # Prepare metadatas
         metadatas.append({
-            'source_url': document.metadata.get('source', 'unknown'),
-            'chunk_number': index + 1
+            'source_url': chunk.metadata.get('source', 'unknown'),
+            'web_chunk_number': index + 1
         })
         
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
 
-    # Embed the documents
-    embeddings = model.embed_documents(documents)
+    # Embed the chunks
+    embeddings = model.embed_documents(chunks)
     
-    # Add documents to the ChromaDB collection
+    # Add chunks to the ChromaDB collection
     web_data_collection.add(
-        documents=documents,
+        documents=chunks,
         embeddings=embeddings,
         metadatas=metadatas,
         ids=ids
     )
     
-    num_of_docs = len(documents)
-    print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
+    num_of_chunks = len(chunks)
+    print(f"Stored {num_of_chunks} chunk{'' if num_of_chunks < 2 else 's'} in ChromaDB.")
     return True
 
 def add_web_data(url):
