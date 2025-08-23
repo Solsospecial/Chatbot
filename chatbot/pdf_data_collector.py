@@ -21,31 +21,31 @@ def process_pdf_data(data):
         print("Nothing is present")
         return False
 
-    # Prepare documents, embeddings, metadata, and ids
-    documents, metadata, ids = [], [], []
+    # Prepare chunks, embeddings, metadata, and ids
+    chunks, metadata, ids = [], [], []
     
-    for index, document in enumerate(data):
-        # Extract document content from embedding
-        documents.append(document.page_content)
+    for index, chunk in enumerate(data):
+        # Extract chunk content
+        chunks.append(chunk.page_content)
 
         # Prepare metadata
         metadata.append({'page_number': index + 1})
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
 
-    # Embed the documents
-    embeddings = model.embed_documents(documents)
+    # Embed the chunks
+    embeddings = model.embed_documents(chunks)
 
-    # Add documents to the ChromaDB collection
+    # Add chunks to the ChromaDB collection
     pdf_data_collection.add(
-        documents=documents,
+        documents=chunks,
         embeddings=embeddings,
         metadatas=metadata,
         ids=ids
     )
 
-    num_of_docs = len(documents)
-    print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
+    num_of_chunks = len(chunks)
+    print(f"Stored {num_of_docs} chunk{'' if num_of_chunks < 2 else 's'} in ChromaDB.")
     return True
     
 def add_pdf_data(pdf_file_path):
