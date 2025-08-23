@@ -57,7 +57,7 @@ def prompt():
                 - When in doubt about freshness or relevance, use Google Search
                   to check yourself before answering.
                 - Always respond helpfully in natural language after using tools.
-                - Use emojis for a natural, relaxing conversation.
+                - Use emojis for a natural, relaxing conversation. Fairly vary emojis used.
 
                 Use the right tool depending on the user query/request, and then respond helpfully in natural language."""
             ),
