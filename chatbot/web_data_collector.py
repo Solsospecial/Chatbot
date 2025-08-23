@@ -47,7 +47,7 @@ def process_web_data(data):
         # Prepare metadatas
         metadatas.append({
             'source_url': chunk.metadata.get('source', 'unknown'),
-            'web_chunk_number': index + 1
+            'chunk_number': index + 1
         })
         
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
