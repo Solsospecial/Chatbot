@@ -26,7 +26,7 @@ class PDFSearchRun(BaseTool):
     """Tool that queries the PDF search API."""
     name: str = "pdf_search"
     description: str = (
-        "A wrapper around PDF Search API."
+        "A wrapper around the PDF Search API."
         "Useful for searching relevant information within PDF document text chunks."
         "Input should be a search query."
     )
