@@ -46,11 +46,7 @@ if "urls" not in st.session_state:
 st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
 
 st.markdown("<br>", unsafe_allow_html=True)
-st.subheader("
-    👋 Hi! I'm your RAG-powered assistant. 
-    Ask me about your PDFs, web pages, the latest from Google, 
-    or any other query on your mind!
-")
+st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind!")
 st.markdown("<br>", unsafe_allow_html=True)
 
 with st.sidebar:
