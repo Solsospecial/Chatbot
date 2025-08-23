@@ -27,4 +27,4 @@ app.add_middleware(
 )
 
 app.include_router(pdf_api.router, tags=["PDF Question Answering"])
-app.include_router(web_api.router, tags=["Website Question Answering"])
+app.include_router(web_api.router, tags=["Web Data Question Answering"])
