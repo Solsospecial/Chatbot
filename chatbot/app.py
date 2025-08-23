@@ -47,7 +47,7 @@ st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind!")
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
@@ -113,7 +113,7 @@ for message in st.session_state.messages:
         
 # Initialize geeting once
 if not st.session_state.initialized_greeting:
-    greeting = "Hi there! How can I help you? 😊"
+    greeting = "How can I help you today? 😊"
     with st.chat_message("assistant"):
         st.markdown(greeting)
     st.session_state.messages.append({"role": "assistant", "content": greeting})
