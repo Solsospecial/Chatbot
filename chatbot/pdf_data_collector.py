@@ -40,7 +40,7 @@ def process_pdf_data(data):
     pdf_data_collection.add(
         documents=documents,
         embeddings=embeddings,
-        metadata=metadata,
+        metadatas=metadata,
         ids=ids
     )
     print("collection creatwz")
