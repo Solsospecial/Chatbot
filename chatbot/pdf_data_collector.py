@@ -11,7 +11,6 @@ def load_pdf(pdf_file_path):
     try:
         loader = PyPDFLoader(pdf_file_path, mode="page")
         data = loader.load()
-        print(len(data))
         return data
     except Exception as e:
         print(f"Error loading PDF file: {str(e)}")
@@ -34,8 +33,6 @@ def process_pdf_data(data):
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
     
-    print(metadata)
-
     # Embed the documents
     embeddings = model.embed_documents(documents)
 
