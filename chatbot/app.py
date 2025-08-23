@@ -44,7 +44,7 @@ with st.sidebar:
     if file_uploader is not None and "upload_pdf" not in st.session_state:
         response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
         if response.status_code == 200:
-            st.success("Messages added successfully")
+            st.success("PDF document loaded successfully")
         st.session_state.upload_pdf = True
 
     elif url and "url" not in st.session_state:
