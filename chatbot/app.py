@@ -55,9 +55,9 @@ with st.sidebar:
     
     allow_reupload = st.checkbox("Allow re-upload", value=False)
     if not allow_reupload:
-    st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
-else:
-    st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
+        st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
+    else:
+        st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
 
     if file_uploader is not None:
         file_str = str(file_uploader.name)
