@@ -52,3 +52,5 @@ TypeError: Collection.add() got an unexpected keyword argument 'metadata'
 2025-08-23 04:51:47,896 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
 2025-08-23 04:52:14,763 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
 2025-08-23 04:52:34,483 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 05:34:33,180 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://semprebarca.com/barcelona-rejected-e80m-bids-from-chelsea-and-manchester-united-for-22-year-old-player/
+2025-08-23 05:34:38,012 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
