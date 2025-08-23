@@ -10,7 +10,7 @@ import logging
 logger = logging.getLogger(__name__)
 router = APIRouter() # Initialize router
 
-UPLOAD_DIRECTORY = Path("upload")
+UPLOAD_DIRECTORY = Path("uploads")
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)  # Ensure the directory exists
 
 @router.post("/add_pdf/")
