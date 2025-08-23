@@ -87,7 +87,7 @@ with st.sidebar:
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
-        llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro", max_retries=2)
+        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", max_retries=2)
         
         # Setup tools
         tools = [
