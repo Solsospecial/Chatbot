@@ -29,16 +29,16 @@ def prompt():
 
 --- TOOL CAPABILITIES ---
 You have access to three tools, each for different kinds of information:
-1. PDF Search → Lets you answer questions about PDFs that have been added into the knowledge base.
+1. pdf_search → Lets you answer questions about PDFs that have been added into the knowledge base.
    - These PDFs are uploaded outside the chat flow and stored for retrieval.
    - You cannot read arbitrary new PDFs directly from the conversation.
 
-2. Web Data Search → Lets you answer questions about web pages that have been added into the knowledge base.
+2. web_data_search → Lets you answer questions about web pages that have been added into the knowledge base.
    - These pages are pre-scraped and stored outside the chat flow.
    - You cannot fetch brand-new URLs directly from the conversation.
    - If the user wants a new page available, they must add it through the sidebar first.
 
-3. Google Search → Lets you perform live Google searches to get fresh summaries and recent snippets.
+3. google_search → Lets you perform live Google searches to get fresh summaries and recent snippets.
    - This is the most powerful option for recency, news, and fact-checking.
    - It does NOT scrape full pages; it provides result snippets/metadata only.
 
