@@ -26,7 +26,6 @@ def load_web_data(url):
         document_chunks = text_splitter.split_documents(data)
         
         print(f"Loaded {len(document_chunks)} documents from {url}")
-        print(document_chunks)
         return document_chunks
 
     except Exception as e:
@@ -52,8 +51,6 @@ def process_web_data(data):
         })
         
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
-    
-    print(metadata)
 
     # Embed the documents
     embeddings = model.embed_documents(documents)
