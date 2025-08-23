@@ -37,3 +37,6 @@ TypeError: Collection.add() got an unexpected keyword argument 'metadata'
 2025-08-23 04:08:21,103 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://www.timeanddate.com/
 2025-08-23 04:08:21,779 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
 2025-08-23 04:08:21,809 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'https://www.timeanddate.com/' returned 10 results
+2025-08-23 04:38:38,947 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://google.com
+2025-08-23 04:38:39,577 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 04:39:20,492 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://google.com
