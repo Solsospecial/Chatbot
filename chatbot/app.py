@@ -50,38 +50,46 @@ st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, w
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 with st.sidebar:
-    file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
-    url = st.text_input("Enter URL").strip()
+    file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
+    url = st.text_input("Enter URL", key="url_input").strip()
+    
+    allow_reupload = st.checkbox("Allow re-upload", value=False)
     
     if file_uploader is not None:
         file_str = str(file_uploader.name)
-        if file_str not in st.session_state.pdfs:
+        if file_str not in st.session_state.pdfs or allow_reupload:
             response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
             if response.status_code == 200:
-                st.success("PDF document uploaded successfully")
+                st.success("✅ PDF document uploaded successfully")
                 st.session_state.pdfs.append(file_str)
             else:
                 st.error(f"Failed to upload PDF. Status code: {response.status_code}")
                 st.error("Response content: " + response.text)
         else:
-            st.error("File name already exists")
+            st.warning('This PDF has already been uploaded. Tick the checkbox "Allow re_upload" to enable re-upload')
+        
+        # Clear input after processing
+        st.session_state.file_input = None
 
     if url:
         url_str = str(url.strip())
-        if url_str not in st.session_state.urls:
+        if url_str not in st.session_state.urls or allow_reupload:
             if not url.startswith(('http://', 'https://')):
                 st.error("Invalid URL format. Please ensure the URL starts with 'http://' or 'https://'.")
             else:
                 response = requests.post(f"http://127.0.0.1:8000/scrape_webdata/", json={"url": url})
                 if response.status_code in (200, 202):
-                    st.success("Web Data Extracted")
+                    st.success("✅ Web Data Extracted")
                     st.session_state.urls.append(url_str)
                 else:
                     st.error(f"Failed to extract web data. Status code: {response.status_code}")
                     st.error("Response content: " + response.text)
         else:
-            st.error("URL already processed")
-            
+            st.warning('This URL has already been processed. Tick the checkbox "Allow re_upload" to enable re-upload')
+    
+        # Clear input after processing
+        st.session_state.url_input = ""
+        
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
