@@ -105,7 +105,7 @@ if query := st.chat_input("Enter your query:"):
         try:
             result = st.session_state.agent_executor.invoke({
                 "input": query,
-                "chat_history": st.session_state.messages[-30:]
+                "chat_history": st.session_state.messages[-20:]
             })
             output = result["output"]
         except Exception as e:
