@@ -98,3 +98,10 @@ NameError: name 'num_of_docs' is not defined
 2025-08-23 16:43:14,695 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
 2025-08-23 16:43:26,289 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
 2025-08-23 16:43:40,532 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
+2025-08-23 17:07:49,460 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/sω² @ a Glance v2.0 (1).pdf
+2025-08-23 17:07:54,341 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 17:08:23,259 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/sω² @ a Glance v2.0 (1).pdf
+2025-08-23 17:09:34,518 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
+2025-08-23 17:09:36,765 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 17:09:43,754 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/sω² @ a Glance v2.0 (1).pdf
+2025-08-23 17:09:44,825 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
