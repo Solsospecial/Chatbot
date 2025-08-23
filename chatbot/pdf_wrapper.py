@@ -6,7 +6,7 @@ from langchain_core.tools import BaseTool
 
 class PDFSearchAPIWrapper(BaseModel):
     """Wrapper for PDF Search API."""
-    api_url:str= "http://127.0.0.1:8000"  # The API URL for searching in PDFs
+    api_url:str= "http://127.0.0.1:8000"  # The API URL for searching stored PDFs
     k: int = 10  # The number of results to return
     model_config = ConfigDict(extra="forbid")
 
