@@ -43,7 +43,7 @@ if "urls" not in st.session_state:
     st.session_state.urls = []
 
 # Streamlit setup
-st.title("Streamlit Chatbot with PDF and Web Search")
+st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
         
 with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
