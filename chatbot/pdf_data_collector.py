@@ -45,7 +45,7 @@ def process_pdf_data(data):
     )
 
     num_of_chunks = len(chunks)
-    print(f"Stored {num_of_docs} chunk{'' if num_of_chunks < 2 else 's'} in ChromaDB.")
+    print(f"Stored {num_of_chunks} chunk{'' if num_of_chunks < 2 else 's'} in ChromaDB.")
     return True
     
 def add_pdf_data(pdf_file_path):
