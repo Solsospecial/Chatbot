@@ -54,20 +54,20 @@ with st.sidebar:
     url = st.text_input("Enter URL", key="url_input").strip()
     
     allow_reupload = st.checkbox("Allow re-upload", value=False)
-    
+    if not allow_reupload:
+    st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
+else:
+    st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
+
     if file_uploader is not None:
         file_str = str(file_uploader.name)
         if file_str not in st.session_state.pdfs or allow_reupload:
             response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
             if response.status_code == 200:
                 st.success("✅ PDF document uploaded successfully")
-                if not allow_reupload:
-                    st.warning('INFO: Re-uploading the same PDF is disabled by default. Tick the checkbox "Allow re_upload" to enable re-upload')
-                else:
-                    st.warning('STATUS: ✅ PDF Re-upload is enabled')
                 st.session_state.pdfs.append(file_str)
             else:
-                st.error(f"Failed to upload PDF. Status code: {response.status_code}")
+                st.error(f"Error: Failed to upload PDF. Status code: {response.status_code}")
                 st.error("Response content: " + response.text)
                 
     if url:
@@ -79,13 +79,9 @@ with st.sidebar:
                 response = requests.post(f"http://127.0.0.1:8000/scrape_webdata/", json={"url": url})
                 if response.status_code in (200, 202):
                     st.success("✅ Web Data Extracted")
-                    if not allow_reupload:
-                        st.warning('INFO: Re-entering the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable re-entry')
-                    else:
-                        st.warning('STATUS: ✅ URL Re-entery is enabled')
                     st.session_state.urls.append(url_str)
                 else:
-                    st.error(f"Failed to extract web data. Status code: {response.status_code}")
+                    st.error(f"Error: Failed to extract web data. Status code: {response.status_code}")
                     st.error("Response content: " + response.text)
 
 # Create the LangChain agent
