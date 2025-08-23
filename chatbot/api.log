@@ -1,0 +1,23 @@
+2025-08-23 01:38:41,476 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
+2025-08-23 01:50:20,080 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: upload/Identification documents(1).pdf
+2025-08-23 01:50:21,474 - api_endpoints.pdf_api - ERROR - upload_pdf - 30- Error while processing PDF
+Traceback (most recent call last):
+  File "/workspaces/Chatbot/chatbot/api_endpoints/pdf_api.py", line 27, in upload_pdf
+    add_pdf_data(pdf_file_path=file_path)
+  File "/workspaces/Chatbot/chatbot/pdf_data_collector.py", line 60, in add_pdf_data
+    if process_pdf_data(pdf_data_df):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Chatbot/chatbot/pdf_data_collector.py", line 43, in process_pdf_data
+    pdf_data_collection.add(
+TypeError: Collection.add() got an unexpected keyword argument 'metadata'
+2025-08-23 02:07:57,972 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: upload/ppa_Letter (1).pdf
+2025-08-23 02:07:58,912 - api_endpoints.pdf_api - ERROR - upload_pdf - 30- Error while processing PDF
+Traceback (most recent call last):
+  File "/workspaces/Chatbot/chatbot/api_endpoints/pdf_api.py", line 27, in upload_pdf
+    add_pdf_data(pdf_file_path=file_path)
+  File "/workspaces/Chatbot/chatbot/pdf_data_collector.py", line 57, in add_pdf_data
+    if process_pdf_data(pdf_data_df):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Chatbot/chatbot/pdf_data_collector.py", line 40, in process_pdf_data
+    pdf_data_collection.add(
+TypeError: Collection.add() got an unexpected keyword argument 'metadata'
