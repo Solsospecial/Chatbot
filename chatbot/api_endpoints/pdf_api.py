@@ -50,7 +50,7 @@ async def query_messages(request: QueryRequest):
         structured_results = []
         for res in results:
             structured_results.append({
-                "page_number": res.metadata.get("pdf_page_number"),
+                "page_number": res.metadata.get("page_number"),
                 "content": res.page_content
             })
 
