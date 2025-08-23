@@ -50,28 +50,34 @@ with st.sidebar:
     url = st.text_input("Enter URL").strip()
     
     if file_uploader is not None:
-        if file_uploader.name not in st.session_state.pdfs:
+        file_str = str(file_uploader.name)
+        if file_str not in st.session_state.pdfs:
             response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
             if response.status_code == 200:
                 st.success("PDF document uploaded successfully")
-                st.session_state.pdfs = file_uploader.name
+                st.session_state.pdfs.append(file_str)
             else:
                 st.error(f"Failed to upload PDF. Status code: {response.status_code}")
                 st.error("Response content: " + response.text)
+        else:
+            st.error("File name already exists")
 
     if url:
-        if url not in st.session_state.urls:
+        url_str = str(url.strip())
+        if url_str not in st.session_state.urls:
             if not url.startswith(('http://', 'https://')):
                 st.error("Invalid URL format. Please ensure the URL starts with 'http://' or 'https://'.")
             else:
                 response = requests.post(f"http://127.0.0.1:8000/scrape_webdata/", json={"url": url})
                 if response.status_code in (200, 202):
                     st.success("Web Data Extracted")
-                    st.session_state.urls = url
+                    st.session_state.urls.append(url_str)
                 else:
                     st.error(f"Failed to extract web data. Status code: {response.status_code}")
                     st.error("Response content: " + response.text)
-        
+        else:
+            st.error("URL already processed")
+            
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
