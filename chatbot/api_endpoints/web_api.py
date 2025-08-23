@@ -45,7 +45,7 @@ async def query_messages(request: QueryRequest):
         if not results:
             return JSONResponse(
                 status_code=404,
-                content={"message": "No relevant documents found."}
+                content={"message": "No relevant results found."}
             )
         
         num_res = len(results)
