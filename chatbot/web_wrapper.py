@@ -25,8 +25,8 @@ class WebSearchRun(BaseTool):
     """This tool queries the Web search API."""
     name: str = "web_search"
     description: str = (
-        "A wrapper around Web Search API."
-        "Useful for searching relevant information on the web."
+        "A wrapper around the Web Search API."
+        "Useful for searching relevant information from web URL text chunks."
         "Input should be a search query."
     )
     api_wrapper: WebSearchAPIWrapper
