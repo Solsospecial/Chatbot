@@ -7,7 +7,7 @@ from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
 
 # Streamlit configuration
-st.set_page_config(page_title="Streamlit Chatbot for PDF Query and Web Search")
+st.set_page_config(page_title="TriKnow RAG Assistant")
 
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -44,7 +44,15 @@ if "urls" not in st.session_state:
 
 # Streamlit setup
 st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
-        
+
+st.markdown("<br>", unsafe_allow_html=True)
+st.subheader("
+    👋 Hi! I'm your RAG-powered assistant. 
+    Ask me about your PDFs, web pages, the latest from Google, 
+    or any other query on your mind!
+")
+st.markdown("<br>", unsafe_allow_html=True)
+
 with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
     url = st.text_input("Enter URL").strip()
