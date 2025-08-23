@@ -50,7 +50,7 @@ def process_web_data(data):
             'web_chunk_number': index + 1
         })
         
-        ids.append(str(uuid.uuid4()))  # Generate unique IDs for each document
+        ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
 
     # Embed the chunks
     embeddings = model.embed_documents(chunks)
