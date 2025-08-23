@@ -42,16 +42,15 @@ with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"])
     url = st.text_input("Enter URL").strip()
     
-    if file_uploader is not None and "upload_pdf" not in st.session_state:
+    if file_uploader is not None:
         response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
         if response.status_code == 200:
             st.success("PDF document uploaded successfully")
         else:
             st.error(f"Failed to upload PDF. Status code: {response.status_code}")
             st.error("Response content: " + response.text)
-        st.session_state.upload_pdf = True
 
-    elif url and "url" not in st.session_state:
+    if url:
         if not url.startswith(('http://', 'https://')):
             st.error("Invalid URL format. Please ensure the URL starts with 'http://' or 'https://'.")
         else:
@@ -61,7 +60,6 @@ with st.sidebar:
             else:
                 st.error(f"Failed to extract web data. Status code: {response.status_code}")
                 st.error("Response content: " + response.text)
-        st.session_state.url = True
         
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
