@@ -29,7 +29,7 @@ def process_pdf_data(data):
         chunks.append(chunk.page_content)
 
         # Prepare metadata
-        metadata.append({'page_number': index + 1})
+        metadata.append({'pdf_page_number': index + 1})
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
 
