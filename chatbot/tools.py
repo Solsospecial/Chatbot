@@ -19,7 +19,7 @@ def web_tool():
     web_tool = StructuredTool.from_function(
         func=web_search.run,
         name="web-search",
-        description="Search web URLs and return the most relevant chunks of information for the user query."
+        description="Search processed web URL text chunks and return the most relevant chunks of information for the user query."
     )
     return web_tool
 
@@ -29,6 +29,6 @@ def pdf_tool():
     pdf_tool = StructuredTool.from_function(
         func=pdf_search.run,
         name="pdf-search",
-        description="Search PDF documents and return the most relevant text segments for the user query."
+        description="Search PDF document text chunks and return the most relevant text segments for the user query."
     )
     return pdf_tool
