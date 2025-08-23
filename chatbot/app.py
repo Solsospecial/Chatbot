@@ -90,7 +90,7 @@ for message in st.session_state.messages:
         
 # Initialize geeting once
 if not st.session_state.initialized_greeting:
-    greeting = "Hi there! How can I help you?"
+    greeting = "Hi there! How can I help you? 😊"
     with st.chat_message("assistant"):
         st.markdown(greeting)
     st.session_state.messages.append({"role": "assistant", "content": greeting})
