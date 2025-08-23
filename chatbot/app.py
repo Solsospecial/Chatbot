@@ -35,6 +35,13 @@ if "messages" not in st.session_state:
 if "initialized_greeting" not in st.session_state:
     st.session_state.initialized_greeting = False
 
+# Initialize tracking of uploaded PDFs and accessed URLs
+if "pdfs" not in st.session_state:
+    st.session_state.pdfs = []
+    
+if "urls" not in st.session_state:
+    st.session_state.urls = []
+
 # Streamlit setup
 st.title("Streamlit Chatbot with PDF and Web Search")
         
@@ -43,23 +50,27 @@ with st.sidebar:
     url = st.text_input("Enter URL").strip()
     
     if file_uploader is not None:
-        response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
-        if response.status_code == 200:
-            st.success("PDF document uploaded successfully")
-        else:
-            st.error(f"Failed to upload PDF. Status code: {response.status_code}")
-            st.error("Response content: " + response.text)
+        if file_uploader.name not in st.session_state.pdfs:
+            response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
+            if response.status_code == 200:
+                st.success("PDF document uploaded successfully")
+                st.session_state.pdfs = file_uploader.name
+            else:
+                st.error(f"Failed to upload PDF. Status code: {response.status_code}")
+                st.error("Response content: " + response.text)
 
     if url:
-        if not url.startswith(('http://', 'https://')):
-            st.error("Invalid URL format. Please ensure the URL starts with 'http://' or 'https://'.")
-        else:
-            response = requests.post(f"http://127.0.0.1:8000/scrape_webdata/", json={"url": url})
-            if response.status_code in (200, 202):
-                st.success("Web Data Extracted")
+        if url not in st.session_state.urls:
+            if not url.startswith(('http://', 'https://')):
+                st.error("Invalid URL format. Please ensure the URL starts with 'http://' or 'https://'.")
             else:
-                st.error(f"Failed to extract web data. Status code: {response.status_code}")
-                st.error("Response content: " + response.text)
+                response = requests.post(f"http://127.0.0.1:8000/scrape_webdata/", json={"url": url})
+                if response.status_code in (200, 202):
+                    st.success("Web Data Extracted")
+                    st.session_state.urls = url
+                else:
+                    st.error(f"Failed to extract web data. Status code: {response.status_code}")
+                    st.error("Response content: " + response.text)
         
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
