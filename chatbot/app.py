@@ -77,7 +77,7 @@ if "agent_executor" not in st.session_state:
             tools=tools,
             verbose=True,
             handle_parsing_errors=True,
-            max_iterations=5
+            max_iterations=10
         )
     except Exception as e:
         st.error(f"Failed to initialize agent: {e}")
