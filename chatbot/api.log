@@ -88,3 +88,4 @@ NameError: name 'num_of_docs' is not defined
 2025-08-23 09:03:55,609 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'when will barcelona play' returned 5 results
 2025-08-23 16:31:54,305 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
 2025-08-23 16:31:57,339 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-23 16:40:19,388 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
