@@ -23,7 +23,7 @@ def process_pdf_data(data):
 
     # Prepare documents, embeddings, metadata, and ids
     documents, metadata, ids = [], [], []
-    print("nonsense place")
+    
     for index, document in enumerate(data):
         # Extract document content from embedding
         documents.append(document.page_content)
@@ -32,10 +32,10 @@ def process_pdf_data(data):
         metadata.append({'page_number': index + 1})
 
         ids.append(str(uuid.uuid4()))  # Generate unique IDs for each chunk
-    print("Done pdf metafata prep")
+
     # Embed the documents
     embeddings = model.embed_documents(documents)
-    print("Finished embeddings")
+
     # Add documents to the ChromaDB collection
     pdf_data_collection.add(
         documents=documents,
@@ -43,7 +43,7 @@ def process_pdf_data(data):
         metadatas=metadata,
         ids=ids
     )
-    print("collection creatwz")
+
     num_of_docs = len(documents)
     print(f"Stored {num_of_docs} document{'' if num_of_docs < 2 else 's'} in ChromaDB.")
     return True
