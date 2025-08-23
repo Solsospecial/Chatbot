@@ -38,14 +38,14 @@ def process_web_data(data):
         return False
     
     # Prepare documents, embeddings, metadata, and ids
-    documents, metadata, ids = [], [], []
+    documents, metadatas, ids = [], [], []
 
     for index, document in enumerate(data):
         # Extract document content for embedding
         documents.append(document.page_content)
 
-        # Prepare metadata
-        metadata.append({
+        # Prepare metadatas
+        metadatas.append({
             'source_url': document.metadata.get('source', 'unknown'),
             'chunk_number': index + 1
         })
@@ -59,7 +59,7 @@ def process_web_data(data):
     web_data_collection.add(
         documents=documents,
         embeddings=embeddings,
-        metadata=metadata,
+        metadatas=metadatas,
         ids=ids
     )
     
