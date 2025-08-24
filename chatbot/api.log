@@ -121,3 +121,9 @@ NameError: name 'num_of_docs' is not defined
 2025-08-24 01:04:56,328 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
 2025-08-24 01:07:24,258 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/AI engineer Resume.pdf
 2025-08-24 01:07:24,808 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:14:15,743 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/updated_notebook.pdf
+2025-08-24 02:14:27,654 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:15:31,418 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: voltage, current_density
+2025-08-24 02:15:31,421 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:15:31,485 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:15:31,488 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'voltage, current_density' returned 5 results
