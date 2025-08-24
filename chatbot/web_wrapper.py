@@ -6,7 +6,7 @@ from langchain_core.tools import BaseTool
 
 class WebSearchAPIWrapper(BaseModel):
     """Wrapper for Web Search API."""
-    api_url: str= "http://127.0.0.1:8000"  # The API URL for searching stored web pages
+    api_url: str = "http://127.0.0.1:8000"  # The API URL for searching stored web pages
     k: int = 10  # The number of results to return
     model_config = ConfigDict(extra="forbid")
     
