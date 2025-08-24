@@ -146,3 +146,81 @@ NameError: name 'num_of_docs' is not defined
 2025-08-24 02:46:57,942 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: Prashant Saini EXPERIENCE
 2025-08-24 02:46:57,943 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
 2025-08-24 02:46:57,958 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'Prashant Saini EXPERIENCE' returned 5 results
+2025-08-24 02:50:28,704 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://glorious-space-halibut-wrjxp5x65wvr3jv9-8501.app.github.dev/
+2025-08-24 02:50:30,549 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:50:54,263 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:50:54,264 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:50:54,277 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:50:55,360 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:50:55,361 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:50:55,374 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:50:56,482 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:50:56,483 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:50:56,496 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:50:57,618 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:50:57,619 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:50:57,632 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:50:58,860 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:50:58,862 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:50:58,875 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:51:00,125 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:51:00,126 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:51:00,139 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:51:01,394 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:51:01,396 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:51:01,413 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:51:02,598 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:51:02,600 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:51:02,615 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:52:06,194 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:52:06,195 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:52:06,208 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:52:07,439 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: summary of the pdf
+2025-08-24 02:52:07,441 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:52:07,453 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'summary of the pdf' returned 5 results
+2025-08-24 02:53:13,364 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:53:13,376 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:53:13,376 - chromadb.segment.impl.vector.local_hnsw - WARNING - query_vectors - 138- Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+2025-08-24 02:53:13,377 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'lookalike model' returned 1 result
+2025-08-24 02:53:14,798 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:53:14,811 - chromadb.segment.impl.vector.local_hnsw - WARNING - query_vectors - 138- Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+2025-08-24 02:53:14,812 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'lookalike model' returned 1 result
+2025-08-24 02:53:15,811 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:53:15,823 - chromadb.segment.impl.vector.local_hnsw - WARNING - query_vectors - 138- Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+2025-08-24 02:53:15,824 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'lookalike model' returned 1 result
+2025-08-24 02:53:16,777 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:53:16,789 - chromadb.segment.impl.vector.local_hnsw - WARNING - query_vectors - 138- Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+2025-08-24 02:53:16,790 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'lookalike model' returned 1 result
+2025-08-24 02:53:17,764 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:53:17,776 - chromadb.segment.impl.vector.local_hnsw - WARNING - query_vectors - 138- Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+2025-08-24 02:53:17,777 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'lookalike model' returned 1 result
+2025-08-24 02:54:13,200 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://www.timeanddate.com/
+2025-08-24 02:54:37,341 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:37,353 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:38,515 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:38,528 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:39,689 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:39,702 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:40,876 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:40,889 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:42,532 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:42,545 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:44,189 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:44,205 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:45,428 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:45,441 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:47,050 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:47,066 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:48,506 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:48,522 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:54:56,539 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:54:56,552 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone' returned 10 results
+2025-08-24 02:57:01,876 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://www.timeanddate.com/company/
+2025-08-24 02:57:11,430 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:57:11,445 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone information from new web page' returned 10 results
+2025-08-24 02:57:12,762 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:57:12,777 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone information from new web page' returned 10 results
+2025-08-24 02:57:14,641 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:57:14,655 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone information from new web page' returned 10 results
+2025-08-24 02:57:15,705 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:57:15,719 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone information from new web page' returned 10 results
