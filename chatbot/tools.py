@@ -15,9 +15,9 @@ def google_tool():
 
 # Configure Web URL Search tool
 def web_tool():
-    web_search = WebSearchAPIWrapper()
+    web_data_search = WebSearchAPIWrapper()
     web_tool = StructuredTool.from_function(
-        func=web_search.run,
+        func=web_data_search.run,
         name="web_data_search",
         description="Search stored web page content that was previously added to the knowledge base and return relevant text chunks."
     )
