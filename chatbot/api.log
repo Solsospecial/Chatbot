@@ -107,3 +107,12 @@ NameError: name 'num_of_docs' is not defined
 2025-08-23 17:09:44,825 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://scaling-xylophone-7v47xjqj967vc79g-8501.app.github.dev/
 2025-08-23 17:25:47,454 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/ppa_Letter (1).pdf
 2025-08-23 17:25:47,902 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 00:56:20,001 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: any documents
+2025-08-24 00:56:20,004 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 00:56:22,388 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 00:56:22,393 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'any documents' returned 0 result
+2025-08-24 00:56:23,286 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: any documents
+2025-08-24 00:56:23,288 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 00:56:23,300 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'any documents' returned 0 result
+2025-08-24 00:58:54,395 - api_endpoints.web_api - INFO - scrape_webdata - 17- Scraping task queued for URL: https://glorious-space-halibut-wrjxp5x65wvr3jv9-8501.app.github.dev/
+2025-08-24 00:58:55,375 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
