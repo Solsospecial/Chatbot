@@ -136,3 +136,4 @@ NameError: name 'num_of_docs' is not defined
 2025-08-24 02:21:19,321 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: What is the main purpose or scope of this document?
 2025-08-24 02:21:19,322 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
 2025-08-24 02:21:19,342 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'What is the main purpose or scope of this document?' returned 5 results
+2025-08-24 02:43:54,820 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/AI engineer Resume.pdf
