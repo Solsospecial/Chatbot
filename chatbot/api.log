@@ -137,3 +137,12 @@ NameError: name 'num_of_docs' is not defined
 2025-08-24 02:21:19,322 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
 2025-08-24 02:21:19,342 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'What is the main purpose or scope of this document?' returned 5 results
 2025-08-24 02:43:54,820 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/AI engineer Resume.pdf
+2025-08-24 02:46:55,575 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: Prashant Saini experience
+2025-08-24 02:46:55,576 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:46:55,591 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'Prashant Saini experience' returned 5 results
+2025-08-24 02:46:56,826 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: Prashant Saini experience
+2025-08-24 02:46:56,828 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:46:56,843 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'Prashant Saini experience' returned 5 results
+2025-08-24 02:46:57,942 - api_endpoints.pdf_api - INFO - query_messages - 36- Received query: Prashant Saini EXPERIENCE
+2025-08-24 02:46:57,943 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2025-08-24 02:46:57,958 - api_endpoints.pdf_api - INFO - query_messages - 48- PDF query 'Prashant Saini EXPERIENCE' returned 5 results
