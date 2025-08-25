@@ -5,10 +5,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
-from frontend.styling import apply_styling, render_user_message, render_ai_message, slow_down_gif
+from frontend.styling import apply_styling, render_user_message, render_ai_message
 
 # Streamlit configuration
 st.set_page_config(page_title="TriKnow RAG Assistant")
+apply_styling()   # Apply background gif and CSS styling for the sidebar 
 
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
