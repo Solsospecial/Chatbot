@@ -6,9 +6,11 @@ from PIL import Image, ImageSequence
 
 def slow_down_gif(gif_path):
     """Slows down a GIF animation by increasing frame duration."""
+    
     img = Image.open(gif_path)
     frames = []
     durations = []
+    factor = 10   # Factor for the gif to be slowed by
 
     for frame in ImageSequence.Iterator(img):
         frames.append(frame.copy())
@@ -35,6 +37,9 @@ def slow_down_gif(gif_path):
 
 def apply_styling():
     """Injects CSS for sidebar, background, and chat box styling."""
+    
+    slowed_gif = slow_down_gif(background.gif)
+    
     st.markdown(
         """
         <style>
@@ -49,7 +54,7 @@ def apply_styling():
         }
 
         [data-testid="stChatMessageContainer"] {
-            background-image: url('{slow_down_gif(background.gif)}');
+            background-image: url('{slowed_gif}');
             background-size: cover;
             background-position: center;
         }
