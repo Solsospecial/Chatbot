@@ -224,3 +224,6 @@ NameError: name 'num_of_docs' is not defined
 2025-08-24 02:57:14,655 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone information from new web page' returned 10 results
 2025-08-24 02:57:15,705 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
 2025-08-24 02:57:15,719 - api_endpoints.web_api - INFO - query_messages - 52- Web query 'time zone information from new web page' returned 10 results
+2025-08-25 23:40:13,454 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/Mohamed_Thaiebu_software_Engineer.pdf
+2025-08-25 23:40:16,812 - chromadb.telemetry.product.posthog - ERROR - _direct_capture - 59- Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2025-08-25 23:45:49,534 - api_endpoints.pdf_api - INFO - upload_pdf - 24- File saved successfully: uploads/sω² @ a Glance v2.0 (1).pdf
