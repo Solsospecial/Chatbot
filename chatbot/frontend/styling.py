@@ -38,7 +38,7 @@ def slow_down_gif(gif_path):
 def apply_styling():
     """Injects CSS for sidebar, background, and chat box styling."""
     
-    slowed_gif = slow_down_gif(background.gif)
+    slowed_gif = slow_down_gif("background.gif")
     
     st.markdown(
         """
