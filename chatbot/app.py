@@ -9,7 +9,7 @@ from frontend.styling import apply_styling, render_user_message, render_ai_messa
 
 # Streamlit configuration
 st.set_page_config(page_title="TriKnow RAG Assistant")
-apply_styling()   # Apply background gif and CSS styling for the sidebar 
+apply_styling()   # Apply background gif and CSS styling for the sidebar and chat boxes
 
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
