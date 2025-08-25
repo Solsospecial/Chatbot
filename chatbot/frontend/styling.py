@@ -1,6 +1,6 @@
 import streamlit as st
 import html
-import os
+from io import BytesIO
 import base64
 from PIL import Image, ImageSequence
 
@@ -17,7 +17,7 @@ def slow_down_gif(gif_path):
         durations.append(frame.info.get("duration", 100) * factor)   # 10 times slower
 
     # Write slowed GIF into memory
-    buffer = io.BytesIO()
+    buffer = BytesIO()
     frames[0].save(
         buffer,
         format="GIF",
