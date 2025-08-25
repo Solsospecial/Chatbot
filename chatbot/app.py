@@ -108,14 +108,16 @@ if "agent_executor" not in st.session_state:
     
 # Show existing messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    if message["role"] == "user":
+        render_user_message(message["content"])
+    else:
+        render_ai_message(message["content"])
 
-# Handle text input
+# Handle query input and AI output
 if query := st.chat_input("Enter your query:"):
     st.session_state.messages.append({"role": "user", "content": query})
-    with st.chat_message("user"):
-        st.markdown(query)
+    render_user_message(query)
+    
     with st.spinner("Generating response..."):
         try:
             result = st.session_state.agent_executor.invoke({
@@ -126,6 +128,5 @@ if query := st.chat_input("Enter your query:"):
         except Exception as e:
             output = f"Sorry, I ran into an error: {e}"
         
-    with st.chat_message("assistant"):
-        st.markdown(output)
+    render_ai_message(output)
     st.session_state.messages.append({"role": "assistant", "content": output})
