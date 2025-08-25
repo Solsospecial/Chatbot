@@ -45,7 +45,7 @@ st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind! 😊")
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("___")
 
 with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
