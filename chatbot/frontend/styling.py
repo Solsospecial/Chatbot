@@ -4,6 +4,7 @@ from io import BytesIO
 import base64
 from PIL import Image, ImageSequence
 
+@st.cache_data
 def slow_down_gif(gif_path):
     """Slows down a GIF animation by increasing frame duration."""
     
@@ -38,49 +39,49 @@ def slow_down_gif(gif_path):
 def apply_styling():
     """Injects CSS for sidebar, background, and chat box styling."""
     
-    slowed_gif = slow_down_gif("background.gif")
+    slowed_gif = slow_down_gif("frontend/background.gif")
     
     st.markdown(
-        """
+        f"""
         <style>
         /* Sidebar dark green */
-        [data-testid="stSidebar"] {
+        [data-testid="stSidebar"] {{
             background-color: #013220 !important;
-        }
+        }}
 
         /* Background GIF only on main chat area */
-        .stApp {
+        .stApp {{
             background: black !important;
-        }
+        }}
 
-        [data-testid="stChatMessageContainer"] {
+        [data-testid="stChatMessageContainer"] {{
             background-image: url('{slowed_gif}');
             background-size: cover;
             background-position: center;
-        }
+        }}
 
         /* Chat message custom styling */
-        .user-box {
+        .user-box {{
             background-color:#2f2f2f;
             color:white;
             padding:10px;
             border-radius:10px;
             margin-bottom:5px;
-        }
+        }}
 
-        .ai-box {
+        .ai-box {{
             background-color:#1a1a1a;
             color:white;
             padding:10px;
             border-radius:10px;
             margin-bottom:5px;
-        }
+        }}
 
-        .chat-header {
+        .chat-header {{
             font-weight:bold;
             font-size:1.5em;
             margin-bottom:5px;
-        }
+        }}
         </style>
         """,
         unsafe_allow_html=True
