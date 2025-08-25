@@ -5,6 +5,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
+from frontend.styling import apply_styling, render_user_message, render_ai_message, slow_down_gif
 
 # Streamlit configuration
 st.set_page_config(page_title="TriKnow RAG Assistant")
