@@ -1,6 +1,7 @@
 import streamlit as st
 import html
 import os
+import base64
 from PIL import Image, ImageSequence
 
 def slow_down_gif(input_path: str, output_path: str, factor: int = 10):
@@ -11,8 +12,8 @@ def slow_down_gif(input_path: str, output_path: str, factor: int = 10):
 
     for frame in ImageSequence.Iterator(img):
         frames.append(frame.copy())
-        # Multiply original frame duration by factor
-        duration = frame.info.get("duration", 100) * factor
+        # Multiply original frame duration by 10
+        duration = frame.info.get("duration", 100) * 10   # 10 times slower
         durations.append(duration)
 
     frames[0].save(
