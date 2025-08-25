@@ -98,7 +98,7 @@ def render_ai_message(message):
     st.markdown(
         f"""
         <div class="ai-box">
-            <div class="chat-header">AI:</div>
+            <div class="chat-header">TriKnow:</div>
             {html.escape(message)}
         </div>
         """,
