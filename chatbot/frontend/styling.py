@@ -67,6 +67,9 @@ def apply_styling():
             padding:10px;
             border-radius:10px;
             margin-bottom:5px;
+            margin-left:30%;
+            margin-right:5px;
+            text-align:left;
         }}
 
         .ai-box {{
@@ -75,6 +78,9 @@ def apply_styling():
             padding:10px;
             border-radius:10px;
             margin-bottom:5px;
+            margin-right:30%;
+            margin-left:5px;
+            text-align:left;
         }}
 
         .chat-header {{
