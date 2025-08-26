@@ -56,7 +56,8 @@ with st.sidebar:
     else:
         st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
     
-    st.session_state.allow_reupload = st.checkbox("Allow re-upload", value=False)
+    if (st.session_state.allow_reupload := st.checkbox("Allow re-upload", value=False)):
+        st.rerun()
                             
     url = st.text_input("Enter URL", key="url_input").strip()
     if url:
