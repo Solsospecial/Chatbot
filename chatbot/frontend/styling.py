@@ -46,18 +46,18 @@ def apply_styling():
         <style>
         /* Sidebar dark green */
         [data-testid="stSidebar"] {{
-            background-color: #013220 !important;
+            background-color: #001a0f !important;
         }}
 
-        /* Background GIF only on main chat area */
+        /* Background GIF */
         .stApp {{
-            background: black !important;
+            background-image: url('{slowed_gif}') no repeat center center fixed !important;
+            background-size: cover !important;
         }}
 
+        /* Transparent chat container */
         [data-testid="stChatMessageContainer"] {{
-            background-image: url('{slowed_gif}');
-            background-size: cover;
-            background-position: center;
+            background: transparent !important;
         }}
 
         /* Chat message custom styling */
