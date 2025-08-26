@@ -40,10 +40,24 @@ if "pdfs" not in st.session_state:
 if "urls" not in st.session_state:
     st.session_state.urls = []
     
-# Streamlit setup
-st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
+"""Streamlit setup"""
 
+# CSS to place a small text near the sidebar arrow
+st.markdown("""
+    <style>
+        /* Target the sidebar collapse/expand button */
+        [data-testid="collapsedControl"]::after {
+            content: " ⬅ Uploads Here";
+            color: rgb(151, 166, 195);
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
 st.markdown("<br><br>", unsafe_allow_html=True)
+
 st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind! 😊")
 st.markdown("___")
 
