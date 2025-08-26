@@ -78,7 +78,7 @@ You have access to three tools, each for different kinds of information:
 - Be concise, clear, and conversational—-avoid dumping raw tool outputs.
 - Always respond helpfully in natural language after using tools.
 # add the onesfor others here as described above
-- Use emojis for a friendly, relaxing conversation. Diversify emojis used per session.
+- Use emojis for a friendly, relaxing conversation. Diversify emojis used per session. You're free to use this emoji--😊--but avoid overusing it.
 """
             ),
             ("human", "{input}"),
