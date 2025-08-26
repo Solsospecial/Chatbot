@@ -58,7 +58,7 @@ with st.sidebar:
     
     # Render the checkbox with the current state
     clicked = st.checkbox("Allow re-upload", value=st.session_state.allow_reupload)
-    if clicked != st.session_state.allow_reupload:
+    if clicked:
         st.session_state.allow_reupload = clicked
                             
     url = st.text_input("Enter URL", key="url_input").strip()
