@@ -25,13 +25,12 @@
 2. [Project structure & important files](#project-structure--important-files-)
 3. [Prerequisites](#prerequisites-)
 4. [Quickstart — run locally](#quickstart--run-locally-)
-5. [Environment variables / configuration](#environment-variables--configuration-)
-6. [API reference (examples)](#api-reference-examples-)
-7. [Frontend usage (Streamlit)](#frontend-usage-streamlit-)
-8. [Data & storage details](#data--storage-details-)
-9. [Troubleshooting & notes](#troubleshooting--important-notes-)
-10. [Files](#files-quick-reference-short-)
-11. [Acknowledgements & license notes](#-acknowledgements--license)
+5. [API reference (examples)](#api-reference-examples-)
+6. [Frontend usage (Streamlit)](#frontend-usage-streamlit-)
+7. [Data & storage details](#data--storage-details-)
+8. [Troubleshooting & notes](#troubleshooting--important-notes-)
+9. [Files](#files-quick-reference-short-)
+10. [Acknowledgements & license notes](#-acknowledgements--license)
 
 ---
 
