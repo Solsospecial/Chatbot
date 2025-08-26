@@ -39,6 +39,9 @@ if "pdfs" not in st.session_state:
     
 if "urls" not in st.session_state:
     st.session_state.urls = []
+    
+if "allow_reupload" not in st.session_state:
+    st.session_state.allow_reupload = False
 
 # Streamlit setup
 st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
@@ -48,18 +51,13 @@ st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, w
 st.markdown("___")
 
 with st.sidebar:
-    if "allow_reupload" not in st.session_state:
-        st.session_state.allow_reupload = False
-            
     if not st.session_state.allow_reupload:
         st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
     else:
         st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
     
-    # Render the checkbox with the current state
-    clicked = st.checkbox("Allow re-upload", value=st.session_state.allow_reupload)
-    if clicked:
-        st.session_state.allow_reupload = clicked
+    # Render the checkbox
+    st.session_state.allow_reupload = st.checkbox("Allow re-upload", value=False)
                             
     url = st.text_input("Enter URL", key="url_input").strip()
     if url:
