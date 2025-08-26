@@ -22,16 +22,16 @@
 ## Table of contents
 
 1. [Features](#features-)
-2. [Project structure & important files](#project-structure-important-files-)
+2. [Project structure & important files](#project-structure--important-files-)
 3. [Prerequisites](#prerequisites-)
-4. [Quickstart — run locally](#quickstart--run-locally)
-5. [Environment variables / configuration](#environment-variables--configuration)
-6. [API reference (examples)](#api-reference-examples)
-7. [Frontend usage (Streamlit)](#frontend-usage-streamlit)
-8. [Data & storage details](#data--storage-details)
-9. [Troubleshooting & notes](#troubleshooting--notes)
-10. [Files](#files--quick-reference)
-11. [Acknowledgements & license notes](#acknowledgements--license-notes)
+4. [Quickstart — run locally](#quickstart--run-locally-)
+5. [Environment variables / configuration](#environment-variables--configuration-)
+6. [API reference (examples)](#api-reference-examples-)
+7. [Frontend usage (Streamlit)](#frontend-usage-streamlit-)
+8. [Data & storage details](#data--storage-details-)
+9. [Troubleshooting & notes](#troubleshooting--important-notes-)
+10. [Files](#files-quick-reference-short-)
+11. [Acknowledgements & license notes](#--acknowledgements--license)
 
 ---
 
