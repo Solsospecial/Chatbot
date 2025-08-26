@@ -22,7 +22,7 @@
 ## Table of contents
 
 1. [Features](#features-)
-2. [Project structure & important files](#project-structure-&-important-files)
+2. [Project structure & important files](#project-structure-important-files-)
 3. [Prerequisites](#prerequisites-)
 4. [Quickstart — run locally](#quickstart--run-locally)
 5. [Environment variables / configuration](#environment-variables--configuration)
