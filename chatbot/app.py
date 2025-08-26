@@ -40,25 +40,6 @@ if "pdfs" not in st.session_state:
 if "urls" not in st.session_state:
     st.session_state.urls = []
     
-# CSS to place a small text near the sidebar arrow
-st.markdown("""
-    <style>
-        /* Target the sidebar toggle button when sidebar is collapsed */
-        [data-testid="stSidebarCollapsedControl"]::after {
-            content: " ⬅ Uploads here";
-            color: rgb(160, 160, 160);  /* light grey */
-            font-weight: 500;
-            font-size: 13px;
-            margin-left: 6px;
-        }
-
-        /* Remove the text when sidebar is expanded */
-        [data-testid="stSidebarExpandedControl"]::after {
-            content: "";
-        }
-    </style>
-""", unsafe_allow_html=True)
-
 # Streamlit setup
 st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
 st.markdown("<br><br>", unsafe_allow_html=True)
