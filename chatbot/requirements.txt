@@ -12,7 +12,7 @@ langchain-huggingface==0.1.2
 langchain-google-genai==2.1.9
 langchain-google-community
 chromadb==0.5.3
-streamlit==1.36.0
+streamlit
 requests==2.32.0
 pypdf==3.17.4
 sentence-transformers==3.3.0
