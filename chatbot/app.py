@@ -48,26 +48,14 @@ st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, w
 st.markdown("___")
 
 with st.sidebar:
-    file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
-    url = st.text_input("Enter URL", key="url_input").strip()
-    
-    allow_reupload = st.checkbox("Allow re-upload", value=False)
-    if not allow_reupload:
+    reupload = False
+    if not reupload:
         st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
     else:
         st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
-
-    if file_uploader is not None:
-        file_str = str(file_uploader.name)
-        if file_str not in st.session_state.pdfs or allow_reupload:
-            response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
-            if response.status_code == 200:
-                st.success("✅ PDF document uploaded successfully")
-                st.session_state.pdfs.append(file_str)
-            else:
-                st.error(f"Error: Failed to upload PDF. Status code: {response.status_code}")
-                st.error("Response content: " + response.text)
-                
+    allow_reupload = st.checkbox("Allow re-upload", value=reupload)
+                            
+    url = st.text_input("Enter URL", key="url_input").strip()
     if url:
         url_str = str(url.strip())
         if url_str not in st.session_state.urls or allow_reupload:
@@ -81,7 +69,19 @@ with st.sidebar:
                 else:
                     st.error(f"Error: Failed to extract web data. Status code: {response.status_code}")
                     st.error("Response content: " + response.text)
-
+                                            
+    file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
+    if file_uploader is not None:
+        file_str = str(file_uploader.name)
+        if file_str not in st.session_state.pdfs or allow_reupload:
+            response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
+            if response.status_code == 200:
+                st.success("✅ PDF document uploaded successfully")
+                st.session_state.pdfs.append(file_str)
+            else:
+                st.error(f"Error: Failed to upload PDF. Status code: {response.status_code}")
+                st.error("Response content: " + response.text)
+                
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
