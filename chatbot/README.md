@@ -31,7 +31,7 @@
 8. [Data & storage details](#data--storage-details-)
 9. [Troubleshooting & notes](#troubleshooting--important-notes-)
 10. [Files](#files-quick-reference-short-)
-11. [Acknowledgements & license notes](#--acknowledgements--license)
+11. [Acknowledgements & license notes](#-acknowledgements--license)
 
 ---
 
