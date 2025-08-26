@@ -5,9 +5,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from tools import pdf_tool, web_tool, google_tool
 from prompt import prompt
+from frontend.styling import apply_styling, render_user_message, render_ai_message
 
 # Streamlit configuration
 st.set_page_config(page_title="TriKnow RAG Assistant")
+apply_styling()   # Apply background gif and CSS styling for the sidebar
 
 # Setup API Key with validation
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -37,24 +39,22 @@ if "pdfs" not in st.session_state:
     
 if "urls" not in st.session_state:
     st.session_state.urls = []
-
+    
 # Streamlit setup
 st.title("📚🔎🌍 TriKnow  ✨ RAG  🤖 Assistant")
-
 st.markdown("<br><br>", unsafe_allow_html=True)
+
 st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, web pages, the latest from Google, or any other query on your mind! 😊")
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("___")
 
 with st.sidebar:
-    file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
-    url = st.text_input("Enter URL", key="url_input").strip()
-    
     allow_reupload = st.checkbox("Allow re-upload", value=False)
     if not allow_reupload:
         st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
     else:
         st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
 
+    file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
     if file_uploader is not None:
         file_str = str(file_uploader.name)
         if file_str not in st.session_state.pdfs or allow_reupload:
@@ -66,6 +66,7 @@ with st.sidebar:
                 st.error(f"Error: Failed to upload PDF. Status code: {response.status_code}")
                 st.error("Response content: " + response.text)
                 
+    url = st.text_input("Enter URL", key="url_input").strip()
     if url:
         url_str = str(url.strip())
         if url_str not in st.session_state.urls or allow_reupload:
@@ -79,7 +80,7 @@ with st.sidebar:
                 else:
                     st.error(f"Error: Failed to extract web data. Status code: {response.status_code}")
                     st.error("Response content: " + response.text)
-
+                                            
 # Create the LangChain agent
 if "agent_executor" not in st.session_state:
     try:
@@ -106,24 +107,25 @@ if "agent_executor" not in st.session_state:
     
 # Show existing messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    if message["role"] == "user":
+        render_user_message(message["content"])
+    else:
+        render_ai_message(message["content"])
 
-# Handle text input
+# Handle query input and AI output
 if query := st.chat_input("Enter your query:"):
     st.session_state.messages.append({"role": "user", "content": query})
-    with st.chat_message("user"):
-        st.markdown(query)
+    render_user_message(query)
+    
     with st.spinner("Generating response..."):
         try:
             result = st.session_state.agent_executor.invoke({
                 "input": query,
-                "chat_history": st.session_state.messages[-20:]
+                "chat_history": st.session_state.messages[-1000:]
             })
             output = result["output"]
         except Exception as e:
             output = f"Sorry, I ran into an error: {e}"
         
-    with st.chat_message("assistant"):
-        st.markdown(output)
+    render_ai_message(output)
     st.session_state.messages.append({"role": "assistant", "content": output})

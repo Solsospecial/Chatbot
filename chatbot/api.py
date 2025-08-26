@@ -21,10 +21,10 @@ app.add_middleware(
 )
 
 # Add the SessionMiddleware to enable session handling
-app.add_middleware(
-    SessionMiddleware, 
-    secret_key=os.environ.get("SESSION_SECRET", "dev-secret")
-)
+# app.add_middleware(
+#     SessionMiddleware, 
+#     secret_key=os.environ.get("SESSION_SECRET", "dev-secret")
+# )
 
 app.include_router(pdf_api.router, tags=["PDF Question Answering"])
 app.include_router(web_api.router, tags=["Web Data Question Answering"])
