@@ -51,7 +51,7 @@ def apply_styling():
 
         /* Background GIF */
         .stApp {{
-            background-image: url('{slowed_gif}') no repeat center center fixed !important;
+            background-image: url('{slowed_gif}') no-repeat center center fixed !important;
             background-size: cover !important;
         }}
 
