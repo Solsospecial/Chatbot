@@ -43,12 +43,18 @@ if "urls" not in st.session_state:
 # CSS to place a small text near the sidebar arrow
 st.markdown("""
     <style>
-        /* Target the sidebar collapse/expand button */
-        [data-testid="collapsedControl"]::after {
-            content: " ⬅ Uploads Here";
-            color: rgb(200, 200, 200);
-            font-weight: bold;
-            margin-left: 10px;
+        /* Target the sidebar toggle button when sidebar is collapsed */
+        [data-testid="stSidebarCollapsedControl"]::after {
+            content: " ⬅ Uploads here";
+            color: rgb(160, 160, 160);  /* light grey */
+            font-weight: 500;
+            font-size: 13px;
+            margin-left: 6px;
+        }
+
+        /* Remove the text when sidebar is expanded */
+        [data-testid="stSidebarExpandedControl"]::after {
+            content: "";
         }
     </style>
 """, unsafe_allow_html=True)
