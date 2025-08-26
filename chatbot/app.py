@@ -60,7 +60,6 @@ with st.sidebar:
     clicked = st.checkbox("Allow re-upload", value=st.session_state.allow_reupload)
     if clicked != st.session_state.allow_reupload:
         st.session_state.allow_reupload = clicked
-        st.rerun()
                             
     url = st.text_input("Enter URL", key="url_input").strip()
     if url:
