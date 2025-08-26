@@ -61,7 +61,7 @@ with st.sidebar:
     url = st.text_input("Enter URL", key="url_input").strip()
     if url:
         url_str = str(url.strip())
-        if url_str not in st.session_state.urls or allow_reupload:
+        if url_str not in st.session_state.urls or st.session_state.allow_reupload:
             if not url.startswith(('http://', 'https://')):
                 st.error("Invalid URL format. Please ensure the URL starts with 'http://' or 'https://'.")
             else:
@@ -76,7 +76,7 @@ with st.sidebar:
     file_uploader = st.file_uploader("Upload your file:", type=["pdf"], key="file_input")
     if file_uploader is not None:
         file_str = str(file_uploader.name)
-        if file_str not in st.session_state.pdfs or allow_reupload:
+        if file_str not in st.session_state.pdfs or st.session_state.allow_reupload:
             response = requests.post(f"http://127.0.0.1:8000/add_pdf/", files={"file": file_uploader})
             if response.status_code == 200:
                 st.success("✅ PDF document uploaded successfully")
