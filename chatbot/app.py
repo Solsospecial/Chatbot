@@ -51,7 +51,7 @@ st.subheader("👋 Hi! I'm your RAG-powered assistant. Ask me about your PDFs, w
 st.markdown("___")
 
 with st.sidebar:
-    if not st.session_state.allow_reupload:
+    if st.session_state.allow_reupload:
         st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
     else:
         st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
