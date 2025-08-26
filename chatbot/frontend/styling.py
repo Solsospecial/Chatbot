@@ -11,7 +11,7 @@ def slow_down_gif(gif_path):
     img = Image.open(gif_path)
     frames = []
     durations = []
-    factor = 10   # Factor for the gif to be slowed by
+    factor = 50   # Factor for the gif to be slowed by
 
     for frame in ImageSequence.Iterator(img):
         frames.append(frame.copy())
@@ -69,7 +69,7 @@ def apply_styling():
             padding:10px;
             border-radius:10px;
             margin-bottom:5px;
-            margin-left:30%;
+            margin-left:10%;
             margin-right:5px;
             text-align:left;
         }}
@@ -80,7 +80,7 @@ def apply_styling():
             padding:10px;
             border-radius:10px;
             margin-bottom:5px;
-            margin-right:30%;
+            margin-right:10%;
             margin-left:5px;
             text-align:left;
         }}
