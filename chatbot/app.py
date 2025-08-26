@@ -50,13 +50,16 @@ st.markdown("___")
 with st.sidebar:
     if "allow_reupload" not in st.session_state:
         st.session_state.allow_reupload = False
+    # Render the checkbox with the current state
+    clicked = st.checkbox("Allow re-upload", value=st.session_state.allow_reupload)
         
     if not st.session_state.allow_reupload:
         st.warning('INFO: Re-uploading the same PDF or re-processing the same URL is disabled by default. Tick the checkbox "Allow re_upload" to enable both')
     else:
         st.warning('STATUS: ✅ PDF Re-upload and URL re-processing enabled')
     
-    if (st.session_state.allow_reupload := st.checkbox("Allow re-upload", value=False)):
+    if clicked != st.session_state.allow_reupload:
+        st.session_state.allow_reupload = clicked
         st.rerun()
                             
     url = st.text_input("Enter URL", key="url_input").strip()
