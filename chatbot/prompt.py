@@ -1,7 +1,7 @@
 from langchain_core.prompts import ChatPromptTemplate
 from datetime import datetime, timezone
 
-# Get date time
+# Get date and time
 def get_utc_date_time():
     try:
         # Get current UTC time
@@ -43,9 +43,9 @@ You have access to three tools, each for different kinds of information:
    - It does NOT scrape full pages; it provides result snippets/metadata only.
 
 --- DATE AWARENESS & TIME GUIDELINE ---
-- You are shown either the current UTC date/time above or, if unavailable, a fallback message.
-- Use the UTC timestamp to reason about time-sensitive information:
-    - Make sure you use ONLY the Time (24-hour), Day (Monday–Sunday), and Date (Month Day, Year) provided in the timestamp above, if available (as stated above), except if the user says otherwise.
+- You are always shown either the current UTC date/time above or, if unavailable, a fallback message.
+- You must use ONLY the Time (24-hour), Day (Monday–Sunday), and Date (Month Day, Year) from the UTC timestamp above when reasoning about or stating the current time/date.
+- Do not invent, assume, or use any other time/date values—ONLY use the provided UTC timestamp unless the user explicitly says otherwise.
 - If the timestamp is unavailable, rely more heavily on Google Search for recency.
 - Prefer the most recent and reliable results, but qualify claims with timing (e.g., "as of the latest available result…").
 - If unsure whether something is time-sensitive, err on using Google Search.
